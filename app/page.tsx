@@ -12,7 +12,6 @@ import { FinalCTA } from '@/components/sections/FinalCTA'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { FloatingChatbot } from '@/components/ai/FloatingChatbot'
 import { ScrollToTop } from '@/components/ui/ScrollToTop'
-import { Footer } from '@/components/layout/Footer'
 
 export default function Home() {
   return (
@@ -53,7 +52,6 @@ export default function Home() {
         </div>
       </motion.div>
       
-      <Footer />
       <FloatingChatbot />
       <ScrollToTop />
     </div>
