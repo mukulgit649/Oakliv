@@ -7,6 +7,13 @@ const nextConfig = {
   env: {
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   },
+  experimental: {
+    esmExternals: false,
+  },
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
 }
 
 module.exports = nextConfig
