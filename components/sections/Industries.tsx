@@ -41,7 +41,7 @@ const Industries = () => {
   ]
 
   return (
-    <section className="section-padding bg-gradient-to-br from-cream-50 via-white to-cream-100 relative overflow-hidden">
+    <section className="section-padding bg-cream-50 relative overflow-hidden">
       {/* Stunning Particle System */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Large Floating Particles */}
@@ -131,7 +131,7 @@ const Industries = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 relative"
+          className="text-center mb-12 relative"
         >
           {/* Premium Glow Background */}
           <motion.div
@@ -172,7 +172,7 @@ const Industries = () => {
 
           <div className="relative z-10">
             <motion.h2 
-              className="section-title text-premium-black relative"
+              className="text-3xl md:text-4xl font-serif font-bold text-premium-black relative mb-4"
               animate={{
                 textShadow: [
                   "0 0 0px rgba(212, 175, 55, 0)",
@@ -186,26 +186,11 @@ const Industries = () => {
                 ease: "easeInOut"
               }}
             >
-              Industries We <motion.span 
-                className="bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 bg-clip-text text-transparent"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                style={{
-                  backgroundSize: "300% 300%"
-                }}
-              >
-                Serve
-              </motion.span>
+              Industries We <span className="text-gold-600">Serve</span>
             </motion.h2>
             
             <motion.p 
-              className="text-xl text-premium-gray max-w-3xl mx-auto"
+              className="text-lg text-premium-gray max-w-2xl mx-auto"
               animate={{
                 opacity: [0.8, 1, 0.8]
               }}
@@ -221,7 +206,7 @@ const Industries = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((industry, index) => (
             <motion.div
               key={industry.title}
@@ -275,7 +260,7 @@ const Industries = () => {
                 <div className="space-y-6 relative z-10">
                   {/* Enhanced Icon with Premium Effects */}
                   <motion.div 
-                    className={`w-16 h-16 bg-gradient-to-br ${industry.color} rounded-2xl flex items-center justify-center relative overflow-hidden`}
+                    className={`w-16 h-16 ${industry.bgColor} rounded-2xl flex items-center justify-center relative overflow-hidden border-2 border-cork-200`}
                     whileHover={{ 
                       scale: 1.1,
                       rotate: 5
@@ -295,20 +280,6 @@ const Industries = () => {
                       }
                     }}
                   >
-                    {/* Glowing Background */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"
-                      animate={{
-                        opacity: [0, 0.5],
-                        scale: [1, 1.1],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.4,
-                        ease: "easeInOut"
-                      }}
-                    />
                     
                     <motion.div
                       whileHover={{ rotate: 360 }}
@@ -317,16 +288,6 @@ const Industries = () => {
                       <industry.icon className={`w-8 h-8 ${industry.iconColor}`} />
                     </motion.div>
 
-                    {/* Rotating Ring */}
-                    <motion.div
-                      className="absolute inset-0 border-2 border-white/30 rounded-2xl"
-                      animate={{ rotate: [0, 360] }}
-                      transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                    />
                   </motion.div>
 
                   {/* Enhanced Content */}
@@ -373,19 +334,7 @@ const Industries = () => {
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="w-full h-1 bg-gradient-to-r from-cork-400 via-gold-400 to-eco-400 rounded-full relative overflow-hidden">
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent"
-                        animate={{
-                          x: ["-100%", "100%"]
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      />
-                    </div>
+                    <div className="w-full h-1 bg-cork-400 rounded-full"></div>
                   </motion.div>
 
                   {/* Floating Sparkles */}
@@ -409,165 +358,6 @@ const Industries = () => {
           ))}
         </div>
 
-        {/* Enhanced CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-16 relative"
-        >
-          {/* Premium Background Glow */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-gold-400/20 via-cork-400/20 to-eco-400/20 rounded-3xl blur-2xl"
-            animate={{
-              scale: [1, 1.05, 1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-
-          <motion.div 
-            className="bg-white rounded-3xl p-12 shadow-soft max-w-4xl mx-auto relative overflow-hidden"
-            whileHover={{ 
-              scale: 1.02,
-              y: -2
-            }}
-          >
-            {/* Floating Particles */}
-            {[...Array(8)].map((_, i) => (
-              <motion.div
-                key={`cta-particle-${i}`}
-                className="absolute w-1 h-1 bg-gold-400 rounded-full"
-                style={{
-                  left: `${10 + i * 12}%`,
-                  top: `${20 + (i % 3) * 30}%`,
-                }}
-                animate={{
-                  y: [0, -15, 0],
-                  opacity: [0, 1, 0],
-                  scale: [0, 1, 0],
-                }}
-                transition={{
-                  duration: 3 + i * 0.3,
-                  repeat: Infinity,
-                  delay: i * 0.4,
-                  ease: "easeInOut"
-                }}
-              />
-            ))}
-
-            <div className="relative z-10">
-              <motion.h3 
-                className="text-3xl font-serif font-bold text-premium-black mb-4"
-                animate={{
-                  textShadow: [
-                    "0 0 0px rgba(212, 175, 55, 0)",
-                    "0 0 15px rgba(212, 175, 55, 0.2)",
-                    "0 0 0px rgba(212, 175, 55, 0)"
-                  ]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                Don't see your industry?
-              </motion.h3>
-              
-              <motion.p 
-                className="text-lg text-premium-gray mb-8 max-w-2xl mx-auto"
-                animate={{
-                  opacity: [0.8, 1, 0.8]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                We're always expanding our reach. Contact us to discuss how Oakliv can 
-                support your specific industry needs with sustainable solutions.
-              </motion.p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button 
-                  className="btn-primary relative overflow-hidden group"
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -2
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {/* Animated Background */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-gold-500 to-gold-600"
-                    animate={{
-                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    style={{
-                      backgroundSize: "200% 200%"
-                    }}
-                  />
-                  
-                  {/* Shimmer Effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                    animate={{
-                      x: ["-100%", "100%"]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  />
-                  
-                  <span className="relative z-10 flex items-center gap-2">
-                    <Zap className="w-4 h-4" />
-                    Discuss Your Needs
-                  </span>
-                </motion.button>
-                
-                <motion.button 
-                  className="btn-secondary relative overflow-hidden group"
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -2
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {/* Animated Border */}
-                  <motion.div
-                    className="absolute inset-0 rounded-lg border-2 border-cork-400"
-                    animate={{
-                      borderColor: ["#8B4513", "#D4AF37", "#8B4513"]
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  />
-                  
-                  <span className="relative z-10 flex items-center gap-2">
-                    <Star className="w-4 h-4" />
-                    View All Solutions
-                  </span>
-                </motion.button>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   )

@@ -1,149 +1,155 @@
 'use client'
 
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
+import Link from 'next/link'
+import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 
 const Footer = () => {
-  const quickLinks = [
-    { name: 'About', href: '/about' },
-    { name: 'Solutions', href: '/solutions' },
-    { name: 'Industries', href: '/industries' },
-    { name: 'Sustainability', href: '/sustainability' },
-    { name: 'Contact', href: '/contact' },
-  ]
+  const currentYear = new Date().getFullYear()
 
-  const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: '#' },
-    { name: 'Twitter', icon: Twitter, href: '#' },
-    { name: 'Instagram', icon: Instagram, href: '#' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#' },
-  ]
+  const footerLinks = {
+    company: [
+      { name: 'About Us', href: '/about' },
+      { name: 'Our Story', href: '/story' },
+      { name: 'Sustainability', href: '/sustainability' },
+      { name: 'Careers', href: '/careers' }
+    ],
+    solutions: [
+      { name: 'Corporate Gifting', href: '/solutions/corporate' },
+      { name: 'Hospitality', href: '/solutions/hospitality' },
+      { name: 'Interiors', href: '/solutions/interior' },
+      { name: 'Custom Solutions', href: '/solutions/custom' }
+    ],
+    resources: [
+      { name: 'Blog', href: '/blog' },
+      { name: 'Case Studies', href: '/case-studies' },
+      { name: 'Catalogue', href: '/catalogue' },
+      { name: 'Support', href: '/support' }
+    ]
+  }
 
   return (
-    <footer className="bg-luxury-900 text-cream-50">
-      <div className="container-custom">
-        <div className="py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Company Info */}
-            <div className="lg:col-span-2">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cork-500 to-gold-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">O</span>
+    <footer className="bg-cork-900 text-white">
+
+      {/* Main Footer Content */}
+      <div className="container-custom py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {/* Company Info */}
+          <div className="lg:col-span-2">
+            <Link href="/" className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-cork-500 rounded-lg flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M12,16 Q10,12 8,8" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                  <path d="M10,14 Q8,12 6,10" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
+                  <path d="M10,14 Q8,16 6,18" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
+                  <path d="M14,10 Q16,8 18,6" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
+                  <path d="M14,10 Q16,12 18,14" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
+                  <path d="M12,8 Q14,6 16,4" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
+                </svg>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-serif font-bold">Oakliv</h3>
-                    <p className="text-sm text-cream-200">Premium Sustainable Design</p>
+                <h1 className="text-2xl font-serif font-bold text-white">
+                  OAKLIV
+                </h1>
+                <p className="text-xs text-cork-300 font-medium">THE CORK STUDIO</p>
+              </div>
+            </Link>
+            
+            <p className="text-cork-200 mb-6 max-w-md">
+              Northeast India's first sustainable design studio, specializing in premium cork solutions 
+              for enterprises, hospitality, and luxury brands.
+            </p>
+            
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3 text-cork-200">
+                <Phone className="w-4 h-4 text-gold-400" />
+                <span>+91 98765 43210</span>
                   </div>
+              <div className="flex items-center space-x-3 text-cork-200">
+                <Mail className="w-4 h-4 text-gold-400" />
+                <span>hello@oakliv.com</span>
                 </div>
-                <p className="text-cream-200 leading-relaxed max-w-md">
-                  Northeast India's first sustainable design studio, specializing in premium cork solutions. 
-                  We partner with enterprises, SMBs, and Indian brands with our premium eco-friendly alternatives.
-                </p>
-                <div className="flex space-x-4">
-                  {socialLinks.map((social) => (
-                    <Link
-                      key={social.name}
-                      href={social.href}
-                      className="w-10 h-10 bg-cork-800 hover:bg-cork-700 rounded-lg flex items-center justify-center transition-colors duration-300 group"
-                    >
-                      <social.icon className="w-5 h-5 text-cream-200 group-hover:text-gold-400 transition-colors duration-300" />
-                    </Link>
-                  ))}
+              <div className="flex items-center space-x-3 text-cork-200">
+                <MapPin className="w-4 h-4 text-gold-400" />
+                <span>Northeast India</span>
                 </div>
-              </motion.div>
+            </div>
             </div>
 
-            {/* Quick Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+          {/* Company Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Company</h4>
               <ul className="space-y-3">
-                {quickLinks.map((link) => (
+              {footerLinks.company.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-cream-200 hover:text-gold-400 transition-colors duration-300"
+                    className="text-cork-200 hover:text-gold-400 transition-colors duration-300"
                     >
                       {link.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </motion.div>
+          </div>
 
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-gold-400 mt-1 flex-shrink-0" />
+          {/* Solutions Links */}
                   <div>
-                    <p className="text-cream-200 text-sm">
-                      Guwahati, Assam, India<br />
-                      Northeast India
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-gold-400 flex-shrink-0" />
-                  <a
-                    href="tel:+919876543210"
-                    className="text-cream-200 hover:text-gold-400 transition-colors duration-300 text-sm"
+            <h4 className="text-lg font-semibold mb-4">Solutions</h4>
+            <ul className="space-y-3">
+              {footerLinks.solutions.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    href={link.href}
+                    className="text-cork-200 hover:text-gold-400 transition-colors duration-300"
                   >
-                    +91 98765 43210
-                  </a>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-gold-400 flex-shrink-0" />
-                  <a
-                    href="mailto:hello@oakliv.com"
-                    className="text-cream-200 hover:text-gold-400 transition-colors duration-300 text-sm"
+
+          {/* Resources Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Resources</h4>
+            <ul className="space-y-3">
+              {footerLinks.resources.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    href={link.href}
+                    className="text-cork-200 hover:text-gold-400 transition-colors duration-300"
                   >
-                    hello@oakliv.com
-                  </a>
-                </div>
-              </div>
-            </motion.div>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="border-t border-cork-800 py-8"
-        >
+      <div className="border-t border-cork-800">
+        <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-cream-300 text-sm">
-              © 2024 Oakliv Eco India Pvt. Ltd. All rights reserved.
-            </p>
-            <div className="flex space-x-6 text-sm">
-              <Link href="/privacy" className="text-cream-300 hover:text-gold-400 transition-colors duration-300">
+            <div className="text-cork-300 text-sm">
+              © {currentYear} Oakliv Eco India Pvt. Ltd. All rights reserved.
+            </div>
+            <div className="flex space-x-6 text-cork-300 text-sm">
+              <Link href="/privacy" className="hover:text-gold-400 transition-colors duration-300">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-cream-300 hover:text-gold-400 transition-colors duration-300">
+              <Link href="/terms" className="hover:text-gold-400 transition-colors duration-300">
                 Terms of Service
+              </Link>
+              <Link href="/cookies" className="hover:text-gold-400 transition-colors duration-300">
+                Cookie Policy
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   )

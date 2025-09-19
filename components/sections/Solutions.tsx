@@ -2,128 +2,201 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Briefcase, Users, Home, Building2, Coffee, Heart, Lightbulb } from 'lucide-react'
+import { ArrowRight, Briefcase, Users, Home } from 'lucide-react'
 
 const Solutions = () => {
 
   const solutions = [
     {
       icon: Briefcase,
-      title: 'Corporate & Bulk Gifting',
-      description: 'Premium corporate gifts and bulk solutions for enterprises',
-      image: '/solutions/corporate.jpg',
+      title: 'Corporate Gifting',
+      description: 'Premium cork corporate gifts and bulk solutions for enterprises. Custom branding available.',
+      features: ['Custom Branding', 'Bulk Orders', 'Premium Quality'],
+      color: 'cork',
       href: '/solutions/corporate'
     },
     {
       icon: Users,
-      title: 'Hospitality & Guest Experience',
-      description: 'Hotel products and guest experience solutions',
-      image: '/solutions/hospitality.jpg',
+      title: 'Hospitality',
+      description: 'Luxury cork products for hotels, resorts, and hospitality spaces. Enhance guest experience.',
+      features: ['Guest Experience', 'Luxury Finish', 'Durable'],
+      color: 'gold',
       href: '/solutions/hospitality'
     },
     {
       icon: Home,
-      title: 'Interiors & Wall Solutions',
-      description: 'Furniture and interior design solutions',
-      image: '/solutions/interior.jpg',
+      title: 'Interiors',
+      description: 'Sustainable cork wall panels, furniture, and interior design solutions for modern spaces.',
+      features: ['Wall Panels', 'Furniture', 'Acoustic Properties'],
+      color: 'eco',
       href: '/solutions/interior'
-    },
-    {
-      icon: Building2,
-      title: 'Workplace & Stationery',
-      description: 'Office essentials and workspace solutions',
-      image: '/solutions/workplace.jpg',
-      href: '/solutions/workplace'
-    },
-    {
-      icon: Heart,
-      title: 'Lifestyle & Decor',
-      description: 'Premium lifestyle and home decor products',
-      image: '/solutions/lifestyle.jpg',
-      href: '/solutions/lifestyle'
-    },
-    {
-      icon: Lightbulb,
-      title: 'Materials & Innovation',
-      description: 'Advanced cork materials and R&D solutions',
-      image: '/solutions/materials.jpg',
-      href: '/solutions/materials'
     }
   ]
 
+  const getColorClasses = (color: string) => {
+    switch (color) {
+      case 'cork':
+        return {
+          bg: 'bg-cork-50',
+          iconBg: 'bg-cork-600',
+          iconColor: 'text-cork-600',
+          textColor: 'text-cork-700',
+          borderColor: 'border-cork-200',
+          hoverBg: 'hover:bg-cork-100'
+        }
+      case 'gold':
+        return {
+          bg: 'bg-gold-50',
+          iconBg: 'bg-gold-600',
+          iconColor: 'text-gold-600',
+          textColor: 'text-gold-700',
+          borderColor: 'border-gold-200',
+          hoverBg: 'hover:bg-gold-100'
+        }
+      case 'eco':
+        return {
+          bg: 'bg-eco-50',
+          iconBg: 'bg-eco-600',
+          iconColor: 'text-eco-600',
+          textColor: 'text-eco-700',
+          borderColor: 'border-eco-200',
+          hoverBg: 'hover:bg-eco-100'
+        }
+      default:
+        return {
+          bg: 'bg-cork-50',
+          iconBg: 'bg-cork-600',
+          iconColor: 'text-cork-600',
+          textColor: 'text-cork-700',
+          borderColor: 'border-cork-200',
+          hoverBg: 'hover:bg-cork-100'
+        }
+    }
+  }
+
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-cream-50">
       <div className="container-custom">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="section-title text-premium-black">
-            Our <span className="text-gradient-premium">Solutions</span>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-premium-black mb-4">
+            Our <span className="text-cork-600">Solutions</span>
           </h2>
-          <p className="text-lg text-premium-gray max-w-2xl mx-auto">
-            Six categories of premium sustainable solutions, 
-            crafted to the highest standards.
+          <p className="text-lg text-premium-gray max-w-2xl mx-auto mb-6">
+            Premium cork-based solutions designed for sustainability, luxury, and functionality.
           </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-cork-200">
+              <span className="text-cork-600 font-medium text-sm">Sustainability</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-cork-200">
+              <span className="text-cork-600 font-medium text-sm">Bulk Orders</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-cork-200">
+              <span className="text-cork-600 font-medium text-sm">Custom Options</span>
+            </div>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solutions.map((solution, index) => (
-            <motion.div
-              key={solution.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group"
-            >
-              <Link href={solution.href}>
-                <div className="card-premium h-full">
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cork-100 to-cork-200 flex items-center justify-center">
-                      <div className="text-center space-y-3">
-                        <div className="w-16 h-16 bg-cork-500 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                          <solution.icon className="w-8 h-8 text-white" />
-                        </div>
-                        <p className="text-cork-700 font-medium">Premium Solutions</p>
+        {/* Solutions Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+          {solutions.map((solution, index) => {
+            const colors = getColorClasses(solution.color)
+            return (
+              <motion.div
+                key={solution.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="group"
+              >
+                <Link href={solution.href}>
+                  <div className={`${colors.bg} rounded-2xl p-6 h-full border ${colors.borderColor} transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1 ${colors.hoverBg}`}>
+                    {/* Icon */}
+                    <motion.div
+                      className={`w-16 h-16 ${colors.iconBg} rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300`}
+                      whileHover={{ rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <solution.icon className="w-8 h-8 text-white" />
+                    </motion.div>
+
+                    {/* Content */}
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-serif font-bold text-premium-black group-hover:text-cork-900 transition-colors duration-300">
+                        {solution.title}
+                      </h3>
+                      <p className="text-base text-premium-gray leading-relaxed">
+                        {solution.description}
+                      </p>
+
+                      {/* Features */}
+                      <div className="space-y-1.5">
+                        {solution.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-center space-x-2">
+                            <div className={`w-1.5 h-1.5 ${colors.iconBg} rounded-full`}></div>
+                            <span className={`text-sm ${colors.textColor} font-medium`}>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* CTA */}
+                      <div className="flex items-center justify-between pt-4 border-t border-cork-200">
+                        <span className={`${colors.textColor} font-semibold text-sm group-hover:translate-x-1 transition-transform duration-300`}>
+                          Explore Solution
+                        </span>
+                        <ArrowRight className={`w-4 h-4 ${colors.iconColor} group-hover:translate-x-1 transition-transform duration-300`} />
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
 
-                  {/* Content */}
-                  <div className="p-8 space-y-4">
-                    <h3 className="text-xl font-semibold text-premium-black group-hover:text-cork-900 transition-colors duration-300">
-                      {solution.title}
-                    </h3>
-                    <p className="text-premium-gray leading-relaxed">
-                      {solution.description}
-                    </p>
-                    
-                    {/* CTA */}
-                    <div className="flex items-center text-cork-600 font-medium group-hover:text-cork-700 transition-colors duration-300">
-                      <span>Explore Solution</span>
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    {/* Glow Effect */}
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className={`absolute inset-0 rounded-2xl ${colors.iconBg} opacity-5 blur-xl`}></div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                </Link>
+              </motion.div>
+            )
+          })}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16"
+          className="text-center"
         >
-          <Link href="/solutions" className="btn-luxury">
-            View All Solutions
-          </Link>
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-cork-100 max-w-3xl mx-auto">
+            <h3 className="text-2xl font-serif font-bold text-premium-black mb-3">
+              Need Custom Solutions?
+            </h3>
+            <p className="text-base text-premium-gray mb-6 max-w-xl mx-auto">
+              We specialize in creating bespoke cork products tailored to your specific 
+              requirements. From bulk orders to custom branding, we've got you covered.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-cork-600 hover:bg-cork-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+              >
+                Explore Solutions
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="border-2 border-cork-600 text-cork-600 hover:bg-cork-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+              >
+                Request Catalogue
+              </motion.button>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

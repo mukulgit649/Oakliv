@@ -9,10 +9,10 @@ import { WhyChoose } from '@/components/sections/WhyChoose'
 import { CaseStudies } from '@/components/sections/CaseStudies'
 import { Sustainability } from '@/components/sections/Sustainability'
 import { FinalCTA } from '@/components/sections/FinalCTA'
-import { ProductShowcase } from '@/components/sections/ProductShowcase'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { FloatingChatbot } from '@/components/ai/FloatingChatbot'
 import { ScrollToTop } from '@/components/ui/ScrollToTop'
+import { Footer } from '@/components/layout/Footer'
 
 export default function Home() {
   return (
@@ -27,17 +27,33 @@ export default function Home() {
         className="relative z-10"
       >
         <Hero />
-        <About />
-        <Industries />
-        <Solutions />
-        <WhyChoose />
-        <CaseStudies />
-        <Sustainability />
-        <FinalCTA />
-        <ProductShowcase />
-        <Testimonials />
+        <div className="py-12">
+          <About />
+        </div>
+        <div className="py-12">
+          <Industries />
+        </div>
+        <div className="py-12">
+          <Solutions />
+        </div>
+        <div className="py-12">
+          <WhyChoose />
+        </div>
+        <div className="py-12">
+          <CaseStudies />
+        </div>
+        <div className="py-12">
+          <Sustainability />
+        </div>
+        <div className="py-12">
+          <FinalCTA />
+        </div>
+        <div className="py-12">
+          <Testimonials />
+        </div>
       </motion.div>
       
+      <Footer />
       <FloatingChatbot />
       <ScrollToTop />
     </div>

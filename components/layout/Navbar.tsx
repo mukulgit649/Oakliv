@@ -21,7 +21,17 @@ const Navbar = () => {
   const navigation = [
     { name: 'About', href: '/about' },
     { name: 'Solutions', href: '/solutions' },
-    { name: 'Industries', href: '/industries' },
+    { 
+      name: 'Industries', 
+      href: '/industries',
+      dropdown: [
+        { name: 'Why Cork', href: '/why-cork' },
+        { name: 'Hospitality & Resorts', href: '/industries/hospitality' },
+        { name: 'Corporate Gifting', href: '/industries/corporate' },
+        { name: 'Interior Design', href: '/industries/interior' },
+        { name: 'Exports & Wholesale', href: '/industries/exports' }
+      ]
+    },
     { name: 'Sustainability', href: '/sustainability' },
     { name: 'Contact', href: '/contact' },
   ]
@@ -67,41 +77,69 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
-              <motion.div key={item.name} whileHover={{ y: -2 }}>
+              <motion.div 
+                key={item.name} 
+                whileHover={{ y: -2 }}
+                className="relative"
+                onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
                 <Link
                   href={item.href}
-                  className="text-premium-black hover:text-cork-900 font-medium transition-all duration-500 relative group"
+                  className="text-premium-black hover:text-cork-900 font-medium transition-all duration-500 relative group flex items-center space-x-1"
                 >
-                  {item.name}
+                  <span>{item.name}</span>
+                  {item.dropdown && (
+                    <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
+                  )}
                   <motion.div
-                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-gold-500 to-cork-500 rounded-full"
+                    className="absolute -bottom-1 left-0 h-0.5 bg-cork-500 rounded-full"
                     initial={{ width: 0 }}
                     whileHover={{ width: "100%" }}
                     transition={{ duration: 0.3 }}
                   />
                 </Link>
+                
+                {/* Dropdown Menu */}
+                {item.dropdown && (
+                  <AnimatePresence>
+                    {activeDropdown === item.name && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-luxury border border-cork-100 py-2 z-50"
+                      >
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            className="block px-4 py-3 text-premium-black hover:bg-cork-50 hover:text-cork-900 transition-colors duration-300"
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
               </motion.div>
             ))}
           </div>
 
-          {/* AI Search Bar & CTA */}
+          {/* AI Search & CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            {/* AI Search Bar Placeholder */}
-            <motion.div 
-              className="relative"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
+            {/* AI Search Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center space-x-2 bg-cork-600 hover:bg-cork-700 text-white px-4 py-2 rounded-lg transition-colors duration-300"
             >
-              <div className="flex items-center space-x-2 bg-cream-50 border border-cork-200 rounded-xl px-4 py-3 hover:border-cork-300 hover:shadow-soft transition-all duration-500 backdrop-premium">
-                <Search className="w-4 h-4 text-cork-500" />
-                <input
-                  type="text"
-                  placeholder="AI Search coming soon..."
-                  className="bg-transparent text-sm text-cork-700 placeholder-cork-400 focus:outline-none w-48"
-                  disabled
-                />
-              </div>
-            </motion.div>
+              <Search className="w-4 h-4" />
+              <span className="text-sm font-medium">AI Search</span>
+            </motion.button>
+            
+            {/* Catalogue Button */}
             <Link href="/contact" className="btn-primary">
               Request Catalogue
             </Link>
