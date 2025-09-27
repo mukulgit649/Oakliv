@@ -2,29 +2,17 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
+import { Mail, Phone, ArrowRight } from 'lucide-react'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const footerLinks = {
-    company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Story', href: '/story' },
-      { name: 'Sustainability', href: '/sustainability' },
-      { name: 'Careers', href: '/careers' }
-    ],
     solutions: [
       { name: 'Corporate Gifting', href: '/solutions/corporate' },
       { name: 'Hospitality', href: '/solutions/hospitality' },
       { name: 'Interiors', href: '/solutions/interior' },
       { name: 'Custom Solutions', href: '/solutions/custom' }
-    ],
-    resources: [
-      { name: 'Blog', href: '/blog' },
-      { name: 'Case Studies', href: '/case-studies' },
-      { name: 'Catalogue', href: '/catalogue' },
-      { name: 'Support', href: '/support' }
     ]
   }
 
@@ -33,7 +21,7 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-3 mb-6">
@@ -70,32 +58,10 @@ const Footer = () => {
                 <Mail className="w-4 h-4 text-gold-400" />
                 <span>hello@oakliv.com</span>
                 </div>
-              <div className="flex items-center space-x-3 text-cork-200">
-                <MapPin className="w-4 h-4 text-gold-400" />
-                <span>Northeast India</span>
-                </div>
             </div>
             </div>
-
-          {/* Company Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
-              <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                    className="text-cork-200 hover:text-gold-400 transition-colors duration-300"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-          </div>
-
           {/* Solutions Links */}
-                  <div>
+          <div>
             <h4 className="text-lg font-semibold mb-4">Solutions</h4>
             <ul className="space-y-3">
               {footerLinks.solutions.map((link) => (
@@ -109,23 +75,26 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-                </div>
+          </div>
 
-          {/* Resources Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Resources</h4>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href}
-                    className="text-cork-200 hover:text-gold-400 transition-colors duration-300"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Newsletter */}
+          <div className="lg:col-span-1">
+            <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
+            <p className="text-cork-200 mb-4">Get product updates and design inspiration.</p>
+            <form className="space-y-3">
+              <div className="flex items-center bg-white/10 rounded-lg overflow-hidden">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="w-full bg-transparent px-4 py-3 text-sm placeholder:text-cork-300 focus:outline-none"
+                  required
+                />
+                <button type="submit" className="px-4 py-3 bg-gold-500 text-cork-900 font-semibold hover:bg-gold-400 transition-colors duration-300">
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+              <p className="text-xs text-cork-400">We’ll reach you at the contact number after you subscribe.</p>
+            </form>
           </div>
           </div>
         </div>

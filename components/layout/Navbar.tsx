@@ -25,14 +25,14 @@ const Navbar = () => {
       name: 'Industries', 
       href: '/industries',
       dropdown: [
-        { name: 'Why Cork', href: '/why-cork' },
+        { name: 'Why Cork', href: '/about' },
         { name: 'Hospitality & Resorts', href: '/industries/hospitality' },
         { name: 'Corporate Gifting', href: '/industries/corporate' },
         { name: 'Interior Design', href: '/industries/interior' },
-        { name: 'Exports & Wholesale', href: '/industries/exports' }
+        { name: 'Home & Lifestyle', href: '/industries/exports' }
       ]
     },
-    { name: 'Sustainability', href: '/sustainability' },
+    // Sustainability removed
     { name: 'Contact', href: '/contact' },
   ]
 
@@ -127,22 +127,16 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* AI Search & CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            {/* AI Search Button */}
+          {/* Search Button */}
+          <div className="hidden lg:flex items-center">
+            {/* Search Icon Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2 bg-cork-600 hover:bg-cork-700 text-white px-4 py-2 rounded-lg transition-colors duration-300"
+              className="p-2 rounded-lg hover:bg-cork-50 transition-colors duration-300"
             >
-              <Search className="w-4 h-4" />
-              <span className="text-sm font-medium">AI Search</span>
+              <Search className="w-5 h-5 text-cork-600 hover:text-cork-700" />
             </motion.button>
-            
-            {/* Catalogue Button */}
-            <Link href="/contact" className="btn-primary">
-              Request Catalogue
-            </Link>
           </div>
 
           {/* Mobile menu button */}

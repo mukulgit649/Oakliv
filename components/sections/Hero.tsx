@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { Button } from '@/components/ui/Button'
 import { ArrowRight, Sparkles } from 'lucide-react'
 
 const Hero = () => {
@@ -366,110 +367,24 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.6 }}
-              className="flex flex-col sm:flex-row gap-6 items-start"
+              className="flex flex-col sm:flex-row gap-4 items-center"
             >
               <motion.div
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -2
-                }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative group"
               >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-gold-400 to-gold-600 rounded-lg blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    opacity: [0, 0.3, 0]
-                  }}
-                  transition={{ 
-                    duration: 2, 
-                    repeat: Infinity, 
-                    delay: 7 
-                  }}
-                />
-                <Link href="/solutions" className="relative inline-block bg-gradient-to-r from-gold-500 to-gold-600 text-white px-8 py-4 rounded-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden">
-                  <motion.span 
-                    className="flex items-center relative z-10"
-                    animate={{ 
-                      textShadow: [
-                        "0 0 0px rgba(255,255,255,0)",
-                        "0 0 10px rgba(255,255,255,0.5)",
-                        "0 0 0px rgba(255,255,255,0)"
-                      ]
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity, 
-                      delay: 8 
-                    }}
-                  >
-                    Explore Solutions
-                    <motion.div
-                      animate={{ x: [0, 4, 0] }}
-                      transition={{ 
-                        duration: 1.5, 
-                        repeat: Infinity, 
-                        delay: 8.5 
-                      }}
-                    >
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </motion.div>
-                  </motion.span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-gold-400 to-gold-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </Link>
+                <Button href="/solutions" variant="primary" size="lg">
+                  Explore Solutions
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
               </motion.div>
-              
               <motion.div
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -2
-                }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative group"
               >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-white/20 to-cream-100/20 rounded-lg blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"
-                  animate={{ 
-                    scale: [1, 1.05, 1],
-                    opacity: [0, 0.2, 0]
-                  }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
-                    delay: 9 
-                  }}
-                />
-                <Link href="/catalogue" className="relative inline-block bg-white/90 backdrop-blur-sm text-cork-800 px-8 py-4 rounded-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group border border-white/20">
-                  <motion.span 
-                    className="flex items-center relative z-10"
-                    animate={{ 
-                      textShadow: [
-                        "0 0 0px rgba(0,0,0,0)",
-                        "0 0 5px rgba(0,0,0,0.2)",
-                        "0 0 0px rgba(0,0,0,0)"
-                      ]
-                    }}
-                    transition={{ 
-                      duration: 2.5, 
-                      repeat: Infinity, 
-                      delay: 9.5 
-                    }}
-                  >
-                    Request a Catalogue
-                  </motion.span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-cream-100/50 to-white/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </Link>
+                <Button href="/catalogue" variant="secondary" size="lg">
+                  Request a Catalogue
+                </Button>
               </motion.div>
             </motion.div>
 

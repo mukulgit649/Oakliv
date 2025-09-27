@@ -122,23 +122,9 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-12"
+          className="hidden"
         >
-          <div className="bg-cork-50 rounded-2xl p-8 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-serif font-bold text-premium-black mb-3">
-              Ready to Join Our Success Stories?
-            </h3>
-            <p className="text-base text-premium-gray mb-6 max-w-xl mx-auto">
-              Let's discuss how Oakliv can elevate your brand with sustainable cork solutions.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-cork-600 hover:bg-cork-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
-            >
-              Start Your Project
-            </motion.button>
-          </div>
+          <div />
         </motion.div>
 
         {/* Simple Newsletter Section */}
@@ -146,135 +132,9 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="mt-16"
+          className="hidden"
         >
-          <div className="bg-white rounded-2xl p-8 md:p-12 max-w-2xl mx-auto shadow-lg border border-cork-100">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-              className="text-center mb-8"
-            >
-              <h3 className="text-2xl md:text-3xl font-serif font-bold text-premium-black mb-3">
-                Stay Updated with <span className="text-cork-600">Oakliv</span>
-              </h3>
-              <p className="text-premium-gray">
-                Get the latest insights on sustainable design and premium cork solutions.
-              </p>
-            </motion.div>
-
-            <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-              className="space-y-6"
-            >
-              {/* First Name */}
-              <div>
-                <label className="block text-cork-600 font-semibold text-sm mb-2">
-                  FIRST NAME*
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="w-full px-4 py-3 border border-cork-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cork-400 focus:border-transparent transition-all duration-300"
-                />
-              </div>
-
-              {/* Last Name */}
-              <div>
-                <label className="block text-cork-600 font-semibold text-sm mb-2">
-                  LAST NAME*
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="w-full px-4 py-3 border border-cork-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cork-400 focus:border-transparent transition-all duration-300"
-                />
-              </div>
-
-              {/* Country/Region */}
-              <div>
-                <label className="block text-cork-600 font-semibold text-sm mb-2">
-                  COUNTRY/REGION*
-                </label>
-                <select
-                  required
-                  className="w-full px-4 py-3 border border-cork-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cork-400 focus:border-transparent transition-all duration-300 appearance-none bg-white"
-                >
-                  <option value="">Please Select</option>
-                  <option value="india">India</option>
-                  <option value="usa">United States</option>
-                  <option value="uk">United Kingdom</option>
-                  <option value="canada">Canada</option>
-                  <option value="australia">Australia</option>
-                  <option value="germany">Germany</option>
-                  <option value="france">France</option>
-                  <option value="singapore">Singapore</option>
-                  <option value="uae">UAE</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              {/* Company Name */}
-              <div>
-                <label className="block text-cork-600 font-semibold text-sm mb-2">
-                  COMPANY NAME*
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="w-full px-4 py-3 border border-cork-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cork-400 focus:border-transparent transition-all duration-300"
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className="block text-cork-600 font-semibold text-sm mb-2">
-                  EMAIL*
-                </label>
-                <input
-                  type="email"
-                  required
-                  className="w-full px-4 py-3 border border-cork-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cork-400 focus:border-transparent transition-all duration-300"
-                />
-              </div>
-
-              {/* Message */}
-              <div>
-                <label className="block text-cork-600 font-semibold text-sm mb-2">
-                  MESSAGE
-                </label>
-                <textarea
-                  rows={4}
-                  className="w-full px-4 py-3 border border-cork-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cork-400 focus:border-transparent transition-all duration-300 resize-none"
-                  placeholder="Tell us about your project or requirements..."
-                ></textarea>
-              </div>
-
-              {/* Checkbox */}
-              <div className="flex items-start space-x-3">
-                <input
-                  type="checkbox"
-                  id="newsletter-agreement"
-                  className="mt-1 w-4 h-4 text-cork-600 border-cork-300 rounded focus:ring-cork-400"
-                />
-                <label htmlFor="newsletter-agreement" className="text-sm text-premium-gray">
-                  I AGREE TO RECEIVE NEWSLETTER UPDATES AND MARKETING COMMUNICATIONS FROM OAKLIV
-                </label>
-              </div>
-
-              {/* Submit Button */}
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-cork-600 hover:bg-cork-700 text-white py-4 rounded-lg font-semibold transition-colors duration-300"
-              >
-                Subscribe to Newsletter
-              </motion.button>
-            </motion.form>
-          </div>
+          <div />
         </motion.div>
       </div>
     </section>

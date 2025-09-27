@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Star, TrendingUp, Users, Award } from 'lucide-react'
+import { TrendingUp, Users, Award } from 'lucide-react'
 
 const CaseStudies = () => {
 
@@ -90,10 +90,7 @@ const CaseStudies = () => {
 
   return (
     <section className="section-padding bg-white relative">
-      {/* Premium Background Overlay */}
-      <div className="absolute inset-0 bg-premium-pattern opacity-20"></div>
-      
-      <div className="container-custom relative z-10">
+      <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -109,7 +106,7 @@ const CaseStudies = () => {
           </p>
         </motion.div>
 
-        {/* Success Stories Carousel */}
+        {/* Statistics Cards */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,23 +121,44 @@ const CaseStudies = () => {
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
               className="group"
             >
-              <div className="card-premium h-full text-center">
-                <div className="p-8 space-y-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-gold-400 to-gold-600 rounded-2xl flex items-center justify-center mx-auto group-hover:shadow-glow-gold transition-all duration-500">
-                    <study.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="space-y-3">
-                    <div className="text-3xl font-bold text-cork-900">{study.metric}</div>
-                    <h3 className="text-lg font-semibold text-premium-black">
-                      {study.title}
-                    </h3>
-                    <p className="text-premium-gray text-sm">
-                      {study.description}
-                    </p>
-                    <div className="inline-block px-3 py-1 bg-cork-100 text-cork-700 text-xs font-medium rounded-full">
-                      {study.category}
-                    </div>
-                  </div>
+              <div className="bg-white rounded-2xl p-8 shadow-soft hover:shadow-luxury transition-all duration-500 text-center border border-gold-200">
+                {/* Icon */}
+                <motion.div
+                  className="w-16 h-16 bg-cork-100 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gold-100 transition-colors duration-300"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <study.icon className="w-8 h-8 text-cork-600 group-hover:text-gold-600 transition-colors duration-300" />
+                </motion.div>
+
+                {/* Metric */}
+                <motion.div
+                  className="text-4xl font-bold text-cork-900 mb-2"
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  {study.metric}
+                </motion.div>
+
+                {/* Title */}
+                <h3 className="text-lg font-semibold text-premium-black mb-3">
+                  {study.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-premium-gray text-sm mb-4">
+                  {study.description}
+                </p>
+
+                {/* Category Tag */}
+                <div className="inline-block px-4 py-2 bg-cork-100 text-cork-700 text-xs font-medium rounded-full">
+                  {study.category}
                 </div>
               </div>
             </motion.div>
@@ -158,108 +176,49 @@ const CaseStudies = () => {
             Our Trusted Partners
           </h3>
           
-          {/* Rotating Carousel Container */}
-          <div className="relative overflow-hidden">
-            <motion.div
-              className="flex gap-8 justify-center items-center"
-              animate={{ 
-                x: [0, -100, 0],
-                rotate: [0, 2, 0]
-              }}
-              transition={{ 
-                duration: 20, 
-                repeat: Infinity, 
-                ease: "linear" 
-              }}
-            >
-              {/* First set of logos */}
-              {clientLogos.map((client, index) => (
-                <motion.div
-                  key={`${client.name}-1`}
-                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: 1 + index * 0.1,
-                    type: "spring",
-                    stiffness: 100
-                  }}
-                  className="group flex-shrink-0"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    rotate: [0, -5, 5, 0],
-                    transition: { duration: 0.3 }
-                  }}
-                >
-                  <div className="bg-white rounded-2xl p-6 shadow-soft hover:shadow-premium transition-all duration-500 group-hover:-translate-y-3 w-32 h-32 flex flex-col items-center justify-center">
-                    <motion.div 
-                      className={`w-16 h-16 bg-gradient-to-br ${client.color} rounded-xl mx-auto flex items-center justify-center mb-3 group-hover:rotate-12 transition-transform duration-300`}
-                      animate={{ 
-                        rotate: [0, 5, 0],
-                        scale: [1, 1.05, 1]
-                      }}
-                      transition={{ 
-                        duration: 4, 
-                        repeat: Infinity, 
-                        delay: index * 0.5 
-                      }}
-                    >
-                      <span className="text-white font-bold text-lg">
-                        {client.initials}
-                      </span>
-                    </motion.div>
-                    <div className="text-xs text-premium-gray font-medium text-center leading-tight">
-                      {client.name}
-                    </div>
-                    <div className="text-xs text-cork-500 mt-1">
-                      {client.category}
-                    </div>
+          {/* Client Logos Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+            {clientLogos.map((client, index) => (
+              <motion.div
+                key={client.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 1 + index * 0.1,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                className="group"
+                whileHover={{ 
+                  scale: 1.1, 
+                  y: -5,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <div className="bg-white rounded-2xl p-4 shadow-soft hover:shadow-premium transition-all duration-500 group-hover:-translate-y-2 flex flex-col items-center justify-center h-24">
+                  <motion.div 
+                    className={`w-12 h-12 bg-gradient-to-br ${client.color} rounded-xl flex items-center justify-center mb-2 group-hover:rotate-12 transition-transform duration-300`}
+                    animate={{ 
+                      rotate: [0, 5, 0],
+                      scale: [1, 1.05, 1]
+                    }}
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity, 
+                      delay: index * 0.5 
+                    }}
+                  >
+                    <span className="text-white font-bold text-sm">
+                      {client.initials}
+                    </span>
+                  </motion.div>
+                  <div className="text-xs text-premium-gray font-medium text-center leading-tight">
+                    {client.name}
                   </div>
-                </motion.div>
-              ))}
-              
-              {/* Duplicate set for seamless loop */}
-              {clientLogos.map((client, index) => (
-                <motion.div
-                  key={`${client.name}-2`}
-                  className="group flex-shrink-0"
-                  whileHover={{ 
-                    scale: 1.1, 
-                    rotate: [0, -5, 5, 0],
-                    transition: { duration: 0.3 }
-                  }}
-                >
-                  <div className="bg-white rounded-2xl p-6 shadow-soft hover:shadow-premium transition-all duration-500 group-hover:-translate-y-3 w-32 h-32 flex flex-col items-center justify-center">
-                    <motion.div 
-                      className={`w-16 h-16 bg-gradient-to-br ${client.color} rounded-xl mx-auto flex items-center justify-center mb-3 group-hover:rotate-12 transition-transform duration-300`}
-                      animate={{ 
-                        rotate: [0, 5, 0],
-                        scale: [1, 1.05, 1]
-                      }}
-                      transition={{ 
-                        duration: 4, 
-                        repeat: Infinity, 
-                        delay: (index + clientLogos.length) * 0.5 
-                      }}
-                    >
-                      <span className="text-white font-bold text-lg">
-                        {client.initials}
-                      </span>
-                    </motion.div>
-                    <div className="text-xs text-premium-gray font-medium text-center leading-tight">
-                      {client.name}
-                    </div>
-                    <div className="text-xs text-cork-500 mt-1">
-                      {client.category}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-            
-            {/* Gradient overlays for smooth edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

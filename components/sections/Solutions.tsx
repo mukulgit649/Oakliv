@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Briefcase, Users, Home } from 'lucide-react'
+import { Card } from '@/components/ui/Card'
+import { Button } from '@/components/ui/Button'
 
 const Solutions = () => {
 
@@ -104,7 +106,7 @@ const Solutions = () => {
         </motion.div>
 
         {/* Solutions Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10">
           {solutions.map((solution, index) => {
             const colors = getColorClasses(solution.color)
             return (
@@ -116,7 +118,7 @@ const Solutions = () => {
                 className="group"
               >
                 <Link href={solution.href}>
-                  <div className={`${colors.bg} rounded-2xl p-6 h-full border ${colors.borderColor} transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1 ${colors.hoverBg}`}>
+                  <Card className={`${colors.bg} h-full border ${colors.borderColor} ${colors.hoverBg}`}>
                     {/* Icon */}
                     <motion.div
                       className={`w-16 h-16 ${colors.iconBg} rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300`}
@@ -146,11 +148,11 @@ const Solutions = () => {
                       </div>
 
                       {/* CTA */}
-                      <div className="flex items-center justify-between pt-4 border-t border-cork-200">
-                        <span className={`${colors.textColor} font-semibold text-sm group-hover:translate-x-1 transition-transform duration-300`}>
+                      <div className="pt-4 border-t border-cork-200">
+                        <Button variant="primary" size="md" fullWidth className="!py-2">
                           Explore Solution
-                        </span>
-                        <ArrowRight className={`w-4 h-4 ${colors.iconColor} group-hover:translate-x-1 transition-transform duration-300`} />
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
                       </div>
                     </div>
 
@@ -158,7 +160,7 @@ const Solutions = () => {
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       <div className={`absolute inset-0 rounded-2xl ${colors.iconBg} opacity-5 blur-xl`}></div>
                     </div>
-                  </div>
+                  </Card>
                 </Link>
               </motion.div>
             )
@@ -181,20 +183,8 @@ const Solutions = () => {
               requirements. From bulk orders to custom branding, we've got you covered.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-cork-600 hover:bg-cork-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
-              >
-                Explore Solutions
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-cork-600 text-cork-600 hover:bg-cork-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
-              >
-                Request Catalogue
-              </motion.button>
+              <Button variant="primary" size="md" fullWidth className="sm:w-auto">Explore Solutions</Button>
+              <Button variant="ghost" size="md" fullWidth className="sm:w-auto">Request Catalogue</Button>
             </div>
           </div>
         </motion.div>
