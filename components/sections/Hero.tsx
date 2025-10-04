@@ -251,7 +251,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight"
               >
                 <motion.span 
                   initial={{ opacity: 0, x: -30, scale: 0.8 }}
@@ -327,7 +327,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4 }}
-                className="text-base sm:text-lg leading-relaxed max-w-2xl relative mx-auto lg:mx-0"
+                className="text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl relative mx-auto lg:mx-0 px-4 sm:px-0"
               >
                 <motion.span 
                   className="text-cream-100 drop-shadow-lg"
@@ -366,13 +366,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mt-6 sm:mt-8 px-4 sm:px-0"
               >
                 <Link href="/solutions">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group bg-gradient-to-r from-cork-600 to-cork-700 hover:from-cork-700 hover:to-cork-800 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-3"
+                    className="group bg-gradient-to-r from-cork-600 to-cork-700 hover:from-cork-700 hover:to-cork-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-3"
                   >
                     <span>Explore Solutions</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -383,7 +383,7 @@ const Hero = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                    className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-3"
+                    className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:border-white/50 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-3"
                   >
                     <Download className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                     <span>Request Catalogue</span>

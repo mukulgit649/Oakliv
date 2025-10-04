@@ -175,7 +175,7 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="lg:col-span-1">
             <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
-            <p className="text-cork-200 mb-4">Get product updates and design inspiration.</p>
+            <p className="text-cork-200 mb-4 text-sm sm:text-base">Get product updates and design inspiration.</p>
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <div className="flex items-center bg-white/10 rounded-lg overflow-hidden">
                 <input
@@ -183,13 +183,13 @@ const Footer = () => {
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder="Your email"
-                  className="w-full bg-transparent px-4 py-3 text-sm placeholder:text-cork-300 focus:outline-none"
+                  className="w-full bg-transparent px-3 sm:px-4 py-3 text-sm placeholder:text-cork-300 focus:outline-none"
                   required
                 />
                 <button 
                   type="submit" 
                   disabled={isNewsletterSubmitting}
-                  className={`px-4 py-3 font-semibold transition-colors duration-300 ${
+                  className={`px-3 sm:px-4 py-3 font-semibold transition-colors duration-300 flex-shrink-0 ${
                     isNewsletterSubmitting 
                       ? 'bg-gray-400 cursor-not-allowed' 
                       : 'bg-gold-500 text-cork-900 hover:bg-gold-400'

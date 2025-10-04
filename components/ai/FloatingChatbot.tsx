@@ -15,9 +15,9 @@ const FloatingChatbot = () => {
         animate={{ scale: 1 }}
         transition={{ delay: 2, type: "spring", stiffness: 200 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-cork-900 hover:bg-cork-800 rounded-full shadow-luxury flex items-center justify-center group transition-all duration-300 hover:scale-110"
+        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-cork-900 hover:bg-cork-800 rounded-full shadow-luxury flex items-center justify-center group transition-all duration-300 hover:scale-110"
       >
-        <MessageCircle className="w-8 h-8 text-cream-50 group-hover:scale-110 transition-transform duration-300" />
+        <MessageCircle className="w-6 h-6 sm:w-8 sm:h-8 text-cream-50 group-hover:scale-110 transition-transform duration-300" />
         
         {/* Glow Effect */}
         <div className="absolute inset-0 bg-cork-900 rounded-full opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
@@ -31,7 +31,7 @@ const FloatingChatbot = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-24 right-8 z-50 w-80 bg-white rounded-3xl shadow-luxury border border-cork-100 overflow-hidden"
+            className="fixed bottom-20 right-4 sm:bottom-24 sm:right-8 z-50 w-72 sm:w-80 bg-white rounded-3xl shadow-luxury border border-cork-100 overflow-hidden"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-cork-900 to-cork-800 p-6 text-white">
