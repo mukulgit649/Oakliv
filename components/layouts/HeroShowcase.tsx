@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Building2, Gift, Palette, Truck, ArrowRight } from 'lucide-react'
+import { Building2, Gift, Palette, Truck } from 'lucide-react'
 
 interface ShowcaseItem {
   icon: any
@@ -101,16 +101,6 @@ const HeroShowcase = ({ title, subtitle, items }: HeroShowcaseProps) => {
                       {featuredItem.description}
                     </motion.p>
 
-                    <motion.div
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
-                    >
-                      <button className="btn-primary group inline-flex items-center">
-                        Explore Solutions
-                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                      </button>
-                    </motion.div>
                   </div>
 
                   {/* Right Visual */}

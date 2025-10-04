@@ -2,9 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Briefcase, Users, Home } from 'lucide-react'
+import { ArrowRight, Briefcase, Users, Home, Laptop, Heart, Cog } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
 
 const Solutions = () => {
 
@@ -13,7 +12,6 @@ const Solutions = () => {
       icon: Briefcase,
       title: 'Corporate Gifting',
       description: 'Premium cork corporate gifts and bulk solutions for enterprises. Custom branding available.',
-      features: ['Custom Branding', 'Bulk Orders', 'Premium Quality'],
       color: 'cork',
       href: '/solutions/corporate'
     },
@@ -21,7 +19,6 @@ const Solutions = () => {
       icon: Users,
       title: 'Hospitality',
       description: 'Luxury cork products for hotels, resorts, and hospitality spaces. Enhance guest experience.',
-      features: ['Guest Experience', 'Luxury Finish', 'Durable'],
       color: 'gold',
       href: '/solutions/hospitality'
     },
@@ -29,9 +26,29 @@ const Solutions = () => {
       icon: Home,
       title: 'Interiors',
       description: 'Sustainable cork wall panels, furniture, and interior design solutions for modern spaces.',
-      features: ['Wall Panels', 'Furniture', 'Acoustic Properties'],
       color: 'eco',
       href: '/solutions/interior'
+    },
+    {
+      icon: Laptop,
+      title: 'Workplace & Stationery',
+      description: 'Eco-friendly stationery and office accessories for modern workplaces. Our cork organizers, desk sets, and utility items bring sustainability to everyday work environments in bulk or custom branding.',
+      color: 'luxury',
+      href: '/solutions/workplace'
+    },
+    {
+      icon: Heart,
+      title: 'Lifestyle & Decor',
+      description: 'Stylish cork products that blend design with sustainability. Wallets, bags, yoga accessories, planters, and decor pieces—crafted for daily use, gifting, or branded merchandise for enterprises.',
+      color: 'premium',
+      href: '/solutions/lifestyle'
+    },
+    {
+      icon: Cog,
+      title: 'Materials & Innovation',
+      description: 'Supplying cork sheets, fabrics, lids, and stoppers for bulk buyers, designers, and OEMs. We also offer custom product development and white-label solutions tailored to your brand\'s needs.',
+      color: 'innovation',
+      href: '/solutions/materials'
     }
   ]
 
@@ -64,6 +81,33 @@ const Solutions = () => {
           borderColor: 'border-eco-200',
           hoverBg: 'hover:bg-eco-100'
         }
+      case 'luxury':
+        return {
+          bg: 'bg-gradient-to-br from-purple-50 to-indigo-50',
+          iconBg: 'bg-gradient-to-br from-purple-600 to-indigo-600',
+          iconColor: 'text-purple-600',
+          textColor: 'text-purple-700',
+          borderColor: 'border-purple-200',
+          hoverBg: 'hover:bg-gradient-to-br hover:from-purple-100 hover:to-indigo-100'
+        }
+      case 'premium':
+        return {
+          bg: 'bg-gradient-to-br from-rose-50 to-pink-50',
+          iconBg: 'bg-gradient-to-br from-rose-600 to-pink-600',
+          iconColor: 'text-rose-600',
+          textColor: 'text-rose-700',
+          borderColor: 'border-rose-200',
+          hoverBg: 'hover:bg-gradient-to-br hover:from-rose-100 hover:to-pink-100'
+        }
+      case 'innovation':
+        return {
+          bg: 'bg-gradient-to-br from-slate-50 to-gray-50',
+          iconBg: 'bg-gradient-to-br from-slate-600 to-gray-600',
+          iconColor: 'text-slate-600',
+          textColor: 'text-slate-700',
+          borderColor: 'border-slate-200',
+          hoverBg: 'hover:bg-gradient-to-br hover:from-slate-100 hover:to-gray-100'
+        }
       default:
         return {
           bg: 'bg-cork-50',
@@ -86,27 +130,16 @@ const Solutions = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-premium-black mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-premium-black mb-4">
             Our <span className="text-cork-600">Solutions</span>
           </h2>
-          <p className="text-lg text-premium-gray max-w-2xl mx-auto mb-6">
+          <p className="text-base sm:text-lg text-premium-gray max-w-2xl mx-auto mb-6 px-4">
             Premium cork-based solutions designed for sustainability, luxury, and functionality.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <div className="flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-cork-200">
-              <span className="text-cork-600 font-medium text-sm">Sustainability</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-cork-200">
-              <span className="text-cork-600 font-medium text-sm">Bulk Orders</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-cork-200">
-              <span className="text-cork-600 font-medium text-sm">Custom Options</span>
-            </div>
-          </div>
         </motion.div>
 
         {/* Solutions Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-10">
           {solutions.map((solution, index) => {
             const colors = getColorClasses(solution.color)
             return (
@@ -129,30 +162,23 @@ const Solutions = () => {
                     </motion.div>
 
                     {/* Content */}
-                    <div className="space-y-3">
-                      <h3 className="text-xl font-serif font-bold text-premium-black group-hover:text-cork-900 transition-colors duration-300">
-                        {solution.title}
-                      </h3>
-                      <p className="text-base text-premium-gray leading-relaxed">
-                        {solution.description}
-                      </p>
-
-                      {/* Features */}
-                      <div className="space-y-1.5">
-                        {solution.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center space-x-2">
-                            <div className={`w-1.5 h-1.5 ${colors.iconBg} rounded-full`}></div>
-                            <span className={`text-sm ${colors.textColor} font-medium`}>{feature}</span>
-                          </div>
-                        ))}
+                    <div className="flex flex-col h-full p-6">
+                      <div className="flex-1 space-y-4">
+                        <h3 className="text-xl font-serif font-bold text-premium-black group-hover:text-cork-900 transition-colors duration-300">
+                          {solution.title}
+                        </h3>
+                        <p className="text-base text-premium-gray leading-relaxed">
+                          {solution.description}
+                        </p>
                       </div>
 
-                      {/* CTA */}
-                      <div className="pt-4 border-t border-cork-200">
-                        <Button variant="primary" size="md" fullWidth className="!py-2">
-                          Explore Solution
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
+                      {/* CTA Button - Inside card */}
+                      <div className="mt-6 pt-4 border-t border-cork-200">
+                        <div className="text-center">
+                          <span className="inline-flex items-center px-4 py-2 bg-cork-600 text-white text-sm font-medium rounded-lg hover:bg-cork-700 transition-all duration-300 group-hover:scale-105">
+                            Explore {solution.title} →
+                          </span>
+                        </div>
                       </div>
                     </div>
 
@@ -167,27 +193,6 @@ const Solutions = () => {
           })}
         </div>
 
-        {/* Bottom CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center"
-        >
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-cork-100 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-serif font-bold text-premium-black mb-3">
-              Need Custom Solutions?
-            </h3>
-            <p className="text-base text-premium-gray mb-6 max-w-xl mx-auto">
-              We specialize in creating bespoke cork products tailored to your specific 
-              requirements. From bulk orders to custom branding, we've got you covered.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button variant="primary" size="md" fullWidth className="sm:w-auto">Explore Solutions</Button>
-              <Button variant="ghost" size="md" fullWidth className="sm:w-auto">Request Catalogue</Button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

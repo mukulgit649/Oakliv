@@ -20,6 +20,7 @@ const Navbar = () => {
 
   const navigation = [
     { name: 'About', href: '/about' },
+    { name: 'Cork Premium', href: '/cork-premium' },
     { name: 'Solutions', href: '/solutions' },
     { 
       name: 'Industries', 
@@ -46,12 +47,12 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+      <div className="container-custom px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
             <motion.div 
-              className="w-12 h-12 bg-cork-500 rounded-lg flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-cork group-hover:shadow-gold"
+              className="w-10 h-10 sm:w-12 sm:h-12 bg-cork-500 rounded-lg flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-cork group-hover:shadow-gold"
               whileHover={{ rotate: 3 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -67,7 +68,7 @@ const Navbar = () => {
               </svg>
             </motion.div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-serif font-bold text-premium-black group-hover:text-cork-600 transition-colors duration-500">
+              <h1 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold text-premium-black group-hover:text-cork-600 transition-colors duration-500">
                 OAKLIV
               </h1>
               <p className="text-xs text-premium-gray font-medium">THE CORK STUDIO</p>

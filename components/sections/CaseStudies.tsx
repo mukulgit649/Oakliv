@@ -173,7 +173,7 @@ const CaseStudies = () => {
           className="text-center"
         >
           <h3 className="text-3xl font-serif font-bold text-premium-black mb-16">
-            Our Trusted Partners
+            Our Premium Designs
           </h3>
           
           {/* Client Logos Grid */}

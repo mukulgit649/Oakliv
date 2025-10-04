@@ -2,23 +2,22 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Button } from '@/components/ui/Button'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { Sparkles, ArrowRight, Download } from 'lucide-react'
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Stunning Cork Forest Background */}
+      {/* Cork Forest Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80")`,
+          backgroundImage: `url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80")`,
         }}
       />
       
-      {/* Beautiful Blur and Overlay Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-cork-900/80 via-cork-800/70 to-cork-900/80"></div>
-      <div className="absolute inset-0 backdrop-blur-sm"></div>
+      {/* Premium Overlay Effects */}
+      <div className="absolute inset-0 bg-gradient-to-r from-cork-900/85 via-cork-800/75 to-cork-900/85"></div>
+      <div className="absolute inset-0 backdrop-blur-[1px]"></div>
       
       {/* Subtle Pattern Overlay */}
       <div className="absolute inset-0 opacity-10">
@@ -144,14 +143,14 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 relative"
+            className="space-y-6 lg:space-y-8 relative text-center lg:text-left"
           >
             {/* Premium Glow Background */}
             <motion.div
@@ -252,7 +251,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold leading-tight"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight"
               >
                 <motion.span 
                   initial={{ opacity: 0, x: -30, scale: 0.8 }}
@@ -328,7 +327,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4 }}
-                className="text-lg leading-relaxed max-w-2xl relative"
+                className="text-base sm:text-lg leading-relaxed max-w-2xl relative mx-auto lg:mx-0"
               >
                 <motion.span 
                   className="text-cream-100 drop-shadow-lg"
@@ -361,30 +360,35 @@ const Hero = () => {
                   {" "}where innovative design meets eco-responsibility.
                 </motion.span>
               </motion.p>
-            </motion.div>
 
+              {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.6 }}
-              className="flex flex-col sm:flex-row gap-4 items-center"
-            >
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8"
               >
-                <Button href="/solutions" variant="primary" size="lg">
-                  Explore Solutions
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
+                <Link href="/solutions">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group bg-gradient-to-r from-cork-600 to-cork-700 hover:from-cork-700 hover:to-cork-800 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-3"
+                  >
+                    <span>Explore Solutions</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </motion.button>
+                </Link>
+                
+                <Link href="/catalogue">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-              >
-                <Button href="/catalogue" variant="secondary" size="lg">
-                  Request a Catalogue
-                </Button>
+                    className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-3"
+                  >
+                    <Download className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                    <span>Request Catalogue</span>
+                  </motion.button>
+                </Link>
               </motion.div>
             </motion.div>
 
@@ -395,7 +399,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex items-center justify-center"
+            className="relative flex items-center justify-center mt-8 lg:mt-0"
           >
             {/* Premium Background Glow */}
             <motion.div
@@ -435,129 +439,206 @@ const Hero = () => {
                 }}
               />
             ))}
-            {/* Cork Product Display */}
-            <div className="relative w-full max-w-lg h-96 flex items-center justify-center">
-              {/* Main Cork Product Circle */}
+            {/* Real Cork Products Showcase */}
+            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg h-64 sm:h-80 lg:h-96 flex items-center justify-center">
+              {/* Cork Bark Texture Background */}
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 1 }}
+                className="absolute inset-0 bg-cover bg-center rounded-2xl overflow-hidden"
+                style={{
+                  backgroundImage: `url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80")`,
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-cork-900/40 to-cork-800/60"></div>
+              </motion.div>
+
+              {/* Cork Products Display */}
               <motion.div
                 initial={{ scale: 0, opacity: 0, rotate: -180 }}
                 animate={{ scale: 1, opacity: 1, rotate: 0 }}
                 transition={{ delay: 0.5, duration: 1.2, type: "spring", stiffness: 80 }}
-                className="relative w-56 h-56 rounded-full shadow-2xl flex items-center justify-center group hover:shadow-3xl transition-all duration-500 overflow-hidden"
-                whileHover={{ 
-                  scale: 1.08,
-                  rotate: [0, 5, -5, 0]
-                }}
+                className="relative w-full h-full flex items-center justify-center group"
               >
-                {/* Multiple Gradient Layers */}
-                <div className="absolute inset-0 bg-gradient-to-br from-cork-300 to-cork-500 rounded-full"></div>
-                <div className="absolute inset-2 bg-gradient-to-br from-cork-400 to-cork-600 rounded-full opacity-80"></div>
-                <div className="absolute inset-4 bg-gradient-to-br from-cork-200 to-cork-400 rounded-full opacity-60"></div>
-                
-                {/* Animated Ring */}
+                {/* Cork Wine Stoppers */}
                 <motion.div
-                  className="absolute inset-0 border-4 border-gold-400/30 rounded-full"
                   animate={{ 
-                    scale: [1, 1.1],
-                    opacity: [0.3, 0.8]
+                    y: [0, -8, 0],
+                    rotate: [0, 2, 0]
+                  }}
+                  transition={{ 
+                    duration: 6, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 0
+                  }}
+                  className="absolute -top-4 -left-6 flex flex-col space-y-2"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <div className="w-6 h-8 bg-gradient-to-br from-amber-800 to-amber-900 rounded-full shadow-lg"></div>
+                  <div className="w-6 h-8 bg-gradient-to-br from-amber-700 to-amber-800 rounded-full shadow-lg"></div>
+                  <div className="w-6 h-8 bg-gradient-to-br from-amber-600 to-amber-700 rounded-full shadow-lg"></div>
+                </motion.div>
+
+                {/* Cork Coasters */}
+                <motion.div
+                  animate={{ 
+                    y: [0, 6, 0],
+                    rotate: [0, -2, 0]
+                  }}
+                  transition={{ 
+                    duration: 8, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 2
+                  }}
+                  className="absolute -bottom-4 -right-6 grid grid-cols-2 gap-1"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <div className="w-8 h-8 bg-gradient-to-br from-amber-800 to-amber-900 rounded-lg shadow-lg"></div>
+                  <div className="w-8 h-8 bg-gradient-to-br from-amber-700 to-amber-800 rounded-lg shadow-lg"></div>
+                  <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-amber-700 rounded-lg shadow-lg"></div>
+                  <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg shadow-lg"></div>
+                </motion.div>
+
+                {/* Cork Notebook */}
+                <motion.div
+                  animate={{ 
+                    y: [0, -5, 0],
+                    x: [0, 3, 0]
+                  }}
+                  transition={{ 
+                    duration: 7, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 1
+                  }}
+                  className="absolute top-1/2 -right-8 w-16 h-20 bg-gradient-to-br from-amber-800 to-amber-900 rounded-lg shadow-xl border-2 border-amber-700"
+                  whileHover={{ scale: 1.1, rotate: 3 }}
+                >
+                  <div className="w-12 h-16 bg-white rounded-sm shadow-inner mx-auto mt-1 flex items-center justify-center">
+                    <div className="w-8 h-12 bg-amber-100 rounded-sm"></div>
+                  </div>
+                </motion.div>
+
+                {/* Cork Phone Stand */}
+                <motion.div
+                  animate={{ 
+                    y: [0, 4, 0],
+                    x: [0, -3, 0]
+                  }}
+                  transition={{ 
+                    duration: 9, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 3
+                  }}
+                  className="absolute -left-8 top-1/3 w-12 h-16 bg-gradient-to-br from-amber-700 to-amber-800 rounded-lg shadow-lg"
+                  whileHover={{ scale: 1.1, rotate: -3 }}
+                >
+                  <div className="w-8 h-12 bg-amber-600 rounded-lg mx-auto mt-1 relative">
+                    <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-6 h-8 bg-amber-500 rounded-sm"></div>
+                  </div>
+                </motion.div>
+
+                {/* Central Cork Cross-Section */}
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.05, 1],
+                    rotate: [0, 1, 0]
+                  }}
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 1
+                  }}
+                  className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-amber-600 to-amber-800 rounded-full shadow-2xl flex items-center justify-center border-4 border-amber-400/30"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {/* Cork Texture Pattern */}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center relative">
+                    {/* Cork Growth Rings */}
+                    <div className="absolute inset-2 border-2 border-amber-700 rounded-full opacity-60"></div>
+                    <div className="absolute inset-4 border border-amber-800 rounded-full opacity-40"></div>
+                    <div className="absolute inset-6 border border-amber-900 rounded-full opacity-30"></div>
+                    <div className="w-4 h-4 bg-amber-800 rounded-full"></div>
+                  </div>
+                </motion.div>
+
+                {/* Cork Bark Texture Overlay */}
+                <motion.div
+                  animate={{ 
+                    opacity: [0.1, 0.3, 0.1]
                   }}
                   transition={{ 
                     duration: 3, 
                     repeat: Infinity, 
-                    ease: "easeInOut" 
+                    ease: "easeInOut",
+                    delay: 2
+                  }}
+                  className="absolute inset-0 rounded-2xl"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D97706' fill-opacity='0.1'%3E%3Cpath d='M20 20h60v60H20z'/%3E%3Cpath d='M25 25h50v50H25z'/%3E%3Cpath d='M30 30h40v40H30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
                   }}
                 />
-                
-                {/* Inner Glow */}
+
+                {/* Floating Cork Chips */}
                 <motion.div
-                  className="absolute inset-8 bg-gradient-to-br from-white/20 to-transparent rounded-full"
                   animate={{ 
-                    opacity: [0.2, 0.5]
+                    y: [0, -12, 0],
+                    opacity: [0.3, 0.8, 0.3]
                   }}
                   transition={{ 
-                    duration: 2, 
+                    duration: 5, 
                     repeat: Infinity, 
-                    ease: "easeInOut" 
+                    ease: "easeInOut",
+                    delay: 0.5
                   }}
+                  className="absolute top-4 right-4 w-3 h-3 bg-amber-600 rounded-full"
                 />
-                {/* Cork Pattern Lines */}
-                <div className="absolute inset-0 flex items-center justify-center">
                   <motion.div 
-                    className="w-32 h-32 border-4 border-cork-700 rounded-full opacity-30"
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  />
-                  <motion.div 
-                    className="absolute w-20 h-20 border-2 border-cork-600 rounded-full opacity-50"
-                    animate={{ rotate: [0, -360] }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                  />
-                  <motion.div 
-                    className="absolute w-12 h-12 border border-cork-500 rounded-full opacity-70"
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
-                
-                {/* Center Dot with Glow */}
+                  animate={{ 
+                    y: [0, 10, 0],
+                    opacity: [0.2, 0.6, 0.2]
+                  }}
+                  transition={{ 
+                    duration: 6, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 2.5
+                  }}
+                  className="absolute bottom-8 left-6 w-2 h-2 bg-amber-500 rounded-full"
+                />
                 <motion.div
                   animate={{ 
-                    scale: [1, 1.2, 1], 
-                    opacity: [0.6, 1, 0.6],
-                    boxShadow: [
-                      "0 0 0px rgba(139, 69, 19, 0)",
-                      "0 0 20px rgba(139, 69, 19, 0.5)",
-                      "0 0 0px rgba(139, 69, 19, 0)"
-                    ]
+                    y: [0, -6, 0],
+                    x: [0, 4, 0]
                   }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-6 h-6 bg-gradient-to-br from-cork-600 to-cork-800 rounded-full relative z-10"
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-gold-400/30 to-gold-600/30 rounded-full blur-sm"
-                    animate={{ 
-                      scale: [1, 1.5, 1],
-                      opacity: [0, 0.8, 0]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  />
-                </motion.div>
-              </motion.div>
-
-              {/* Floating Cork Elements */}
-              <motion.div
-                animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-6 -right-6 w-8 h-8 bg-gradient-to-br from-cork-400 to-cork-600 rounded-full shadow-lg flex items-center justify-center"
-                whileHover={{ scale: 1.1 }}
-              >
-                <div className="w-3 h-3 bg-cork-200 rounded-full"></div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 15, 0], rotate: [0, -8, 0] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute -bottom-6 -left-6 w-6 h-6 bg-gradient-to-br from-cork-500 to-cork-700 rounded-full shadow-lg flex items-center justify-center"
-                whileHover={{ scale: 1.1 }}
-              >
-                <div className="w-2 h-2 bg-cork-100 rounded-full"></div>
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 1.5
+                  }}
+                  className="absolute top-1/2 left-2 w-2 h-2 bg-amber-700 rounded-full"
+                />
               </motion.div>
               
+              {/* Natural Cork Glow */}
               <motion.div
-                animate={{ y: [0, -10, 0], x: [0, 8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/4 left-1/4 w-4 h-4 bg-cork-300 rounded-full opacity-60"
-              />
-              
-              {/* Background Cork Textures */}
-              <motion.div
-                animate={{ scale: [1, 1.05, 1], opacity: [0.1, 0.2, 0.1] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cork-100 rounded-full -z-10"
-              />
-              <motion.div
-                animate={{ scale: [1, 1.03, 1], opacity: [0.05, 0.15, 0.05] }}
-                transition={{ duration: 6, repeat: Infinity, delay: 2 }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cork-50 rounded-full -z-20"
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  opacity: [0.1, 0.3, 0.1]
+                }}
+                transition={{ 
+                  duration: 8, 
+                  repeat: Infinity, 
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+                className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-amber-600/20 rounded-2xl blur-3xl -z-10"
               />
             </div>
           </motion.div>

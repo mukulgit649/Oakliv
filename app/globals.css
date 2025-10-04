@@ -237,6 +237,33 @@
   }
 }
 
+/* Orbital System Animations */
+@keyframes orbit-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-slower {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: orbit-slow 30s linear infinite;
+}
+
+.animate-spin-slower {
+  animation: orbit-slower 45s linear infinite;
+}
+
 @keyframes gradient-shift {
   0%, 100% {
     background-position: 0% 50%;

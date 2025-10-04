@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Building2, Gift, Palette, Truck, Sparkles, Star, Zap } from 'lucide-react'
-import { HeroShowcase } from '@/components/layouts/HeroShowcase'
+import { CircularIndustries } from '@/components/layouts/CircularIndustries'
 
 const Industries = () => {
 
@@ -43,7 +43,7 @@ const Industries = () => {
   ]
 
   return (
-    <HeroShowcase
+    <CircularIndustries
       title="Industries We Serve"
       subtitle="We partner with diverse industries to deliver premium sustainable solutions that meet their unique needs and values."
       items={industries}

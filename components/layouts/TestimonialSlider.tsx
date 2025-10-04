@@ -282,7 +282,7 @@ const TestimonialSlider = ({ title, subtitle, testimonials, clientLogos = [] }: 
             className="text-center"
           >
             <h3 className="text-3xl font-serif font-bold text-premium-black mb-12">
-              Our Trusted Partners
+              Our Premium Designs
             </h3>
             
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
