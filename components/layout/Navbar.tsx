@@ -35,31 +35,26 @@ const Navbar = () => {
       }`}
     >
       <div className="container-custom px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-20 sm:h-24 md:h-28">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
             <motion.div 
-              className="w-10 h-10 sm:w-12 sm:h-12 bg-cork-500 rounded-lg flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-cork group-hover:shadow-gold"
-              whileHover={{ rotate: 3 }}
+              className="flex items-center group-hover:scale-105 transition-all duration-500"
+              whileHover={{ rotate: 1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              {/* Plant Sprout Icon */}
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M12,16 Q10,12 8,8" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-                <path d="M10,14 Q8,12 6,10" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
-                <path d="M10,14 Q8,16 6,18" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
-                <path d="M14,10 Q16,8 18,6" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
-                <path d="M14,10 Q16,12 18,14" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
-                <path d="M12,8 Q14,6 16,4" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
-              </svg>
+              {/* New OAKLIV Logo */}
+              <img 
+                src="/oakliv-logo.png" 
+                alt="OAKLIV - The Cork Studio" 
+                className="h-16 sm:h-20 md:h-24 w-auto"
+                style={{
+                  imageRendering: 'high-quality',
+                  imageRendering: '-webkit-optimize-contrast',
+                  imageRendering: 'crisp-edges'
+                }}
+              />
             </motion.div>
-            <div className="hidden sm:block">
-              <h1 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold text-premium-black group-hover:text-cork-600 transition-colors duration-500">
-                OAKLIV
-              </h1>
-              <p className="text-xs text-premium-gray font-medium">THE CORK STUDIO</p>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}

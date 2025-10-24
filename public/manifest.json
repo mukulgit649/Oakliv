@@ -12,9 +12,9 @@
   "categories": ["business", "lifestyle", "shopping"],
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/favicon.png",
       "sizes": "any",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     }
   ],
@@ -24,21 +24,21 @@
       "short_name": "Products",
       "description": "Browse our premium cork products",
       "url": "/solutions",
-      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+      "icons": [{ "src": "/favicon.png", "sizes": "any" }]
     },
     {
       "name": "Get Quote",
       "short_name": "Quote",
       "description": "Request a custom quote",
       "url": "/#enquiry",
-      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+      "icons": [{ "src": "/favicon.png", "sizes": "any" }]
     },
     {
       "name": "Contact Us",
       "short_name": "Contact",
       "description": "Get in touch with our team",
       "url": "/contact",
-      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+      "icons": [{ "src": "/favicon.png", "sizes": "any" }]
     }
   ],
   "related_applications": [],

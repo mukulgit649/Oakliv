@@ -328,19 +328,19 @@ const Hero = () => {
               }}
             />
             
-            {/* Real Cork Products Showcase */}
+            {/* Hero Banner Image */}
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg h-64 sm:h-80 lg:h-96 flex items-center justify-center">
-              {/* Cork Bark Texture Background */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 1 }}
-                className="absolute inset-0 bg-cover bg-center rounded-2xl overflow-hidden"
-                style={{
-                  backgroundImage: `url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80")`,
-                }}
+                className="w-full h-full rounded-2xl overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-cork-900/40 to-cork-800/60"></div>
+                <img 
+                  src="/hero-banner.png" 
+                  alt="OAKLIV Hero Banner" 
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
 
               

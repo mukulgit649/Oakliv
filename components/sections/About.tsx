@@ -207,7 +207,7 @@ const About = () => {
           >
             
             <div className="relative">
-              {/* Main Image */}
+              {/* About Banner Image */}
               <motion.div 
                 className="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-luxury group"
                 whileHover={{ 
@@ -220,43 +220,11 @@ const About = () => {
                   stiffness: 300
                 }}
               >
-                <div className="absolute inset-0 bg-cork-100 flex items-center justify-center">
-                  <div className="text-center space-y-6">
-                    <motion.div 
-                      className="w-28 h-28 bg-cork-600 rounded-full mx-auto flex items-center justify-center shadow-cork group-hover:shadow-gold transition-all duration-500 relative overflow-hidden"
-                      whileHover={{ 
-                        scale: 1.1, 
-                        rotate: [0, 10, -10, 0]
-                      }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      animate={{ 
-                        boxShadow: [
-                          "0 8px 32px rgba(139, 69, 19, 0.3)",
-                          "0 12px 40px rgba(139, 69, 19, 0.4)"
-                        ]
-                      }}
-                    >
-                      
-                      <span className="text-white text-3xl font-bold relative z-10">O</span>
-                    </motion.div>
-                    
-                    <motion.p 
-                      className="text-cork-700 font-medium text-lg"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.5 }}
-                    >
-                      Sustainable Design Studio
-                    </motion.p>
-                    
-                    <motion.div
-                      className="w-16 h-0.5 bg-gold-500 rounded-full mx-auto"
-                      initial={{ width: 0 }}
-                      animate={{ width: "4rem" }}
-                      transition={{ delay: 1, duration: 0.8 }}
-                    />
-                  </div>
-                </div>
+                <img 
+                  src="/about-banner.png" 
+                  alt="About OAKLIV Banner" 
+                  className="w-full h-full object-cover"
+                />
                 
                 
                 {/* Floating Particles */}
