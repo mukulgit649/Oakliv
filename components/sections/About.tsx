@@ -209,7 +209,7 @@ const About = () => {
             <div className="relative">
               {/* About Banner Image */}
               <motion.div 
-                className="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-luxury group"
+                className="relative w-full h-64 sm:h-80 md:h-[420px] rounded-2xl overflow-hidden shadow-luxury group"
                 whileHover={{ 
                   scale: 1.02,
                   rotate: [0, 1, -1, 0]
@@ -224,6 +224,7 @@ const About = () => {
                   src="/about-banner.png" 
                   alt="About OAKLIV Banner" 
                   className="w-full h-full object-cover"
+                  style={{ imageRendering: 'crisp-edges' }}
                 />
                 
                 

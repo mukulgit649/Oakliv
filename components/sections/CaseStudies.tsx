@@ -465,14 +465,14 @@ const CaseStudies = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black z-50 flex items-center justify-center p-2 sm:p-4"
           onClick={() => setFullscreenVideo(null)}
         >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            className="relative w-full max-w-6xl aspect-video bg-black rounded-xl overflow-hidden"
+            className="relative w-full max-w-sm sm:max-w-2xl h-[70vh] sm:h-[80vh] bg-black rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -485,7 +485,7 @@ const CaseStudies = () => {
             
             {/* Video */}
             <iframe
-              src={`https://www.youtube.com/embed/${fullscreenVideo}?autoplay=1&mute=0&loop=1&playlist=${fullscreenVideo}&controls=1&showinfo=0&rel=0&modestbranding=1`}
+              src={`https://www.youtube.com/embed/${fullscreenVideo}?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&fs=1`}
               title="Design Video"
               className="w-full h-full"
               allow="autoplay; encrypted-media"

@@ -329,7 +329,7 @@ const Hero = () => {
             />
             
             {/* Hero Banner Image */}
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg h-64 sm:h-80 lg:h-96 flex items-center justify-center">
+            <div className="relative w-full max-w-xs sm:max-w-md lg:max-w-lg h-48 sm:h-80 lg:h-96 flex items-center justify-center">
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -340,6 +340,7 @@ const Hero = () => {
                   src="/hero-banner.png" 
                   alt="OAKLIV Hero Banner" 
                   className="w-full h-full object-cover"
+                  style={{ imageRendering: 'crisp-edges' }}
                 />
               </motion.div>
 
