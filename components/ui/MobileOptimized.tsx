@@ -31,27 +31,27 @@ export const MobileOptimized = () => {
       lastTouchEnd = now
     }
 
-    // Add touch event listeners
-    document.addEventListener('touchend', preventZoom, { passive: false })
+    // Add touch event listeners - REMOVED to fix mobile interactions
+    // document.addEventListener('touchend', preventZoom, { passive: false })
 
-    // Prevent pull-to-refresh on mobile
-    const preventPullToRefresh = (e: TouchEvent) => {
-      if (e.touches.length !== 1) return
-      
-      const touch = e.touches[0]
-      const target = e.target as Element
-      
-      // Allow pull-to-refresh only on specific elements
-      if (target.closest('.allow-pull-refresh')) return
-      
-      // Prevent if scrolling up
-      if (touch.clientY > 50) {
-        e.preventDefault()
-      }
-    }
+    // Prevent pull-to-refresh on mobile - REMOVED to fix mobile interactions
+    // const preventPullToRefresh = (e: TouchEvent) => {
+    //   if (e.touches.length !== 1) return
+    //   
+    //   const touch = e.touches[0]
+    //   const target = e.target as Element
+    //   
+    //   // Allow pull-to-refresh only on specific elements
+    //   if (target.closest('.allow-pull-refresh')) return
+    //   
+    //   // Prevent if scrolling up
+    //   if (touch.clientY > 50) {
+    //     e.preventDefault()
+    //   }
+    // }
 
-    document.addEventListener('touchstart', preventPullToRefresh, { passive: false })
-    document.addEventListener('touchmove', preventPullToRefresh, { passive: false })
+    // document.addEventListener('touchstart', preventPullToRefresh, { passive: false })
+    // document.addEventListener('touchmove', preventPullToRefresh, { passive: false })
 
     // Optimize scroll performance
     const optimizeScroll = () => {
@@ -130,9 +130,7 @@ export const MobileOptimized = () => {
       // Cleanup
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
       window.removeEventListener('appinstalled', handleAppInstalled);
-      document.removeEventListener('touchend', preventZoom);
-      document.removeEventListener('touchstart', preventPullToRefresh);
-      document.removeEventListener('touchmove', preventPullToRefresh);
+      // Removed touch event cleanup since we removed the listeners
       document.body.classList.remove('is-mobile', 'is-ios', 'is-android');
     }
   }, [])
