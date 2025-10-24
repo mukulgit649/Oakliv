@@ -333,54 +333,30 @@
   
   /* Mobile PWA Optimizations */
   @media (max-width: 768px) {
-    /* Smooth scrolling for mobile */
+    /* Basic mobile fixes only */
     html {
       scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      /* Prevent horizontal scroll */
-      overflow-x: hidden;
     }
     
     body {
-      /* Prevent horizontal scroll */
       overflow-x: hidden;
-      /* Better touch scrolling */
-      -webkit-overflow-scrolling: touch;
-      /* Allow interactions on mobile */
-      -webkit-user-select: auto;
-      -moz-user-select: auto;
-      -ms-user-select: auto;
-      user-select: auto;
     }
     
-    /* Allow text selection in content areas */
-    p, span, div, h1, h2, h3, h4, h5, h6 {
-      -webkit-user-select: text;
-      -moz-user-select: text;
-      -ms-user-select: text;
-      user-select: text;
-    }
-    
-    /* Prevent zoom on input focus */
+    /* Mobile input fixes */
     input[type="text"],
     input[type="email"],
     input[type="tel"],
     textarea,
     select {
       font-size: 16px;
-      /* Prevent zoom on focus */
-      transform: scale(1);
     }
     
-    /* Better touch targets */
+    /* Mobile touch targets */
     button,
     a,
     [role="button"] {
       min-height: 44px;
       min-width: 44px;
-      /* Better touch feedback */
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-      tap-highlight-color: rgba(0, 0, 0, 0.1);
     }
     
     /* Optimize video containers for mobile */
@@ -439,68 +415,9 @@
       @apply text-base py-3 px-4 rounded-lg border border-gray-300;
     }
     
-    /* Mobile performance optimizations */
-    * {
-      /* Hardware acceleration for smooth animations */
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-      /* Prevent text size adjustment */
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-    }
+    /* Keep mobile simple */
     
-    /* Mobile image optimizations */
-    img {
-      /* Prevent image dragging */
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      user-drag: none;
-      /* Better image rendering */
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-    }
-    
-    /* Mobile scroll optimizations */
-    .scroll-container {
-      /* Smooth scrolling */
-      -webkit-overflow-scrolling: touch;
-      /* Hide scrollbar but keep functionality */
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    
-    .scroll-container::-webkit-scrollbar {
-      display: none;
-    }
-    
-    /* Mobile chat optimizations */
-    .chat-mobile {
-      /* Better touch scrolling */
-      -webkit-overflow-scrolling: touch;
-      /* Prevent bounce on iOS */
-      overscroll-behavior: contain;
-    }
-    
-    /* Mobile navigation optimizations */
-    .nav-mobile {
-      /* Better touch targets */
-      touch-action: manipulation;
-      /* Prevent double-tap zoom */
-      -webkit-touch-callout: none;
-    }
-    
-    /* Mobile button optimizations */
-    .btn-mobile {
-      /* Better touch feedback */
-      -webkit-tap-highlight-color: transparent;
-      /* Prevent text selection */
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+    /* Keep mobile simple - no complex optimizations */
   }
   
   /* Extra small mobile devices */
