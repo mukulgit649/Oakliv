@@ -337,14 +337,10 @@
     html {
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
-      overflow-x: hidden;
     }
     
     body {
-      overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
-      /* Serene-level touch optimization */
-      touch-action: manipulation;
     }
     
     /* Serene-level mobile inputs */
@@ -366,7 +362,6 @@
       min-width: 44px;
       /* Serene-level touch feedback */
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-      touch-action: manipulation;
     }
     
     /* Serene-level mobile performance */
