@@ -331,32 +331,54 @@
     @apply font-serif font-bold;
   }
   
-  /* Mobile PWA Optimizations */
+  /* Serene-Level PWA Mobile Optimizations */
   @media (max-width: 768px) {
-    /* Basic mobile fixes only */
+    /* Perfect mobile scrolling like Serene */
     html {
       scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: hidden;
     }
     
     body {
       overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      /* Serene-level touch optimization */
+      touch-action: manipulation;
     }
     
-    /* Mobile input fixes */
+    /* Serene-level mobile inputs */
     input[type="text"],
     input[type="email"],
     input[type="tel"],
     textarea,
     select {
       font-size: 16px;
+      /* Prevent zoom on focus like Serene */
+      transform: scale(1);
     }
     
-    /* Mobile touch targets */
+    /* Serene-level touch targets */
     button,
     a,
     [role="button"] {
       min-height: 44px;
       min-width: 44px;
+      /* Serene-level touch feedback */
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+      touch-action: manipulation;
+    }
+    
+    /* Serene-level mobile performance */
+    * {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+    
+    /* Serene-level mobile images */
+    img {
+      -webkit-user-drag: none;
+      user-drag: none;
     }
     
     /* Optimize video containers for mobile */
@@ -415,9 +437,22 @@
       @apply text-base py-3 px-4 rounded-lg border border-gray-300;
     }
     
-    /* Keep mobile simple */
+    /* Serene-level mobile scroll containers */
+    .scroll-container {
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
     
-    /* Keep mobile simple - no complex optimizations */
+    .scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Serene-level mobile chat */
+    .chat-mobile {
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
   }
   
   /* Extra small mobile devices */
