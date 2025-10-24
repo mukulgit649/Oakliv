@@ -534,8 +534,8 @@
   @media (display-mode: standalone) {
     /* Hide browser UI elements when in PWA mode */
     body {
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
+      -webkit-user-select: auto;
+      -webkit-touch-callout: auto;
     }
     
     /* Custom scrollbar for PWA */
@@ -772,7 +772,7 @@
   
   /* Prevent horizontal scrolling */
   body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
   
   /* Better touch targets for mobile */
