@@ -346,11 +346,11 @@
       overflow-x: hidden;
       /* Better touch scrolling */
       -webkit-overflow-scrolling: touch;
-      /* Prevent text selection on mobile */
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+      /* Allow interactions on mobile */
+      -webkit-user-select: auto;
+      -moz-user-select: auto;
+      -ms-user-select: auto;
+      user-select: auto;
     }
     
     /* Allow text selection in content areas */
