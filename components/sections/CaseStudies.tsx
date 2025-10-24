@@ -322,7 +322,7 @@ const CaseStudies = () => {
                   <motion.div
                     key={`first-${design.name}`}
                     ref={ref}
-                    className="group flex-shrink-0 w-28 xs:w-32 sm:w-40"
+                    className="group flex-shrink-0 w-36 xs:w-40 sm:w-44 md:w-48"
                     whileHover={{ 
                       scale: 1.05, 
                       y: -5,
@@ -330,7 +330,7 @@ const CaseStudies = () => {
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <div className="bg-white rounded-2xl p-2 sm:p-3 md:p-4 shadow-soft hover:shadow-premium transition-all duration-500 group-hover:-translate-y-2 flex flex-col items-center justify-center h-18 sm:h-20 md:h-24 relative overflow-hidden">
+                    <div className="bg-white rounded-2xl p-3 sm:p-4 md:p-5 shadow-soft hover:shadow-premium transition-all duration-500 group-hover:-translate-y-2 flex flex-col items-center justify-center h-20 sm:h-24 md:h-28 relative overflow-hidden">
                       {/* Video Overlay - Auto-play when in view */}
                       {playingVideos.has(design.videoId) && (
                         <div className="absolute inset-0 z-10">
@@ -347,7 +347,7 @@ const CaseStudies = () => {
                       
                       {/* Cover Content */}
                       <motion.div 
-                        className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br ${design.color} rounded-xl flex items-center justify-center mb-1 sm:mb-2 group-hover:rotate-12 transition-transform duration-300 relative z-0`}
+                        className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br ${design.color} rounded-xl flex items-center justify-center mb-2 sm:mb-3 group-hover:rotate-12 transition-transform duration-300 relative z-0`}
                     animate={{ 
                       rotate: [0, 5, 0],
                       scale: [1, 1.05, 1]
@@ -358,7 +358,7 @@ const CaseStudies = () => {
                       delay: index * 0.5 
                     }}
                   >
-                        <span className="text-white font-bold text-xs sm:text-sm">
+                        <span className="text-white font-bold text-sm sm:text-base">
                           {design.initials}
                     </span>
                       </motion.div>
@@ -380,7 +380,7 @@ const CaseStudies = () => {
                     </div>
                     
                     {/* Design Name Below the Box */}
-                    <div className="text-xs text-premium-gray font-medium text-center leading-tight mt-2">
+                    <div className="text-sm text-premium-gray font-medium text-center leading-tight mt-2 px-1">
                       {design.name}
                     </div>
                   </motion.div>
@@ -391,7 +391,7 @@ const CaseStudies = () => {
               {premiumDesigns.map((design, index) => (
                 <motion.div
                   key={`second-${design.name}`}
-                  className="group flex-shrink-0 w-28 xs:w-32 sm:w-40"
+                  className="group flex-shrink-0 w-36 xs:w-40 sm:w-44 md:w-48"
                   whileHover={{ 
                     scale: 1.05, 
                     y: -5,

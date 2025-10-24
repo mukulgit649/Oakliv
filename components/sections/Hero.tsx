@@ -199,7 +199,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight"
+                className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight"
               >
                 <motion.span 
                   initial={{ opacity: 0, x: -30, scale: 0.8 }}
@@ -284,10 +284,10 @@ const Hero = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group bg-gradient-to-r from-cork-600 to-cork-700 hover:from-cork-700 hover:to-cork-800 text-white px-6 sm:px-8 py-4 sm:py-4 rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-3 min-h-[48px]"
+                    className="group bg-gradient-to-r from-cork-600 to-cork-700 hover:from-cork-700 hover:to-cork-800 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 sm:space-x-3 min-h-[40px] sm:min-h-[48px]"
                   >
                     <span>Explore Solutions</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </motion.button>
                 </Link>
                 
@@ -295,9 +295,9 @@ const Hero = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                    className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:border-white/50 text-white px-6 sm:px-8 py-4 sm:py-4 rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-3 min-h-[48px]"
+                    className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:border-white/50 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 sm:space-x-3 min-h-[40px] sm:min-h-[48px]"
                   >
-                    <Download className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                    <Download className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
                     <span>Request Catalogue</span>
                   </motion.button>
                 </Link>

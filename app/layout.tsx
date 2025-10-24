@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
-import { Chatbot } from '@/components/ai/Chatbot'
+import { FloatingChatbot } from '@/components/ai/FloatingChatbot'
 import { Analytics } from '@/components/analytics/Analytics'
 import { PWAProvider } from '@/components/pwa/PWAProvider'
 import { MobileOptimized } from '@/components/ui/MobileOptimized'
@@ -99,7 +99,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <Chatbot />
+        <FloatingChatbot />
         <Analytics />
         <PWAProvider />
         <MobileOptimized />
