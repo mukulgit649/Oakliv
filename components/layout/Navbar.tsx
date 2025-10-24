@@ -3,12 +3,11 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Phone, Mail, Search } from 'lucide-react'
+import { Menu, X, Phone, Mail, Search } from 'lucide-react'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,18 +21,6 @@ const Navbar = () => {
     { name: 'About', href: '/about' },
     { name: 'Cork Premium', href: '/cork-premium' },
     { name: 'Solutions', href: '/solutions' },
-    { 
-      name: 'Industries', 
-      href: '/industries',
-      dropdown: [
-        { name: 'Why Cork', href: '/about' },
-        { name: 'Hospitality & Resorts', href: '/industries/hospitality' },
-        { name: 'Corporate Gifting', href: '/industries/corporate' },
-        { name: 'Interior Design', href: '/industries/interior' },
-        { name: 'Home & Lifestyle', href: '/industries/exports' }
-      ]
-    },
-    // Sustainability removed
     { name: 'Contact', href: '/contact' },
   ]
 
@@ -82,17 +69,12 @@ const Navbar = () => {
                 key={item.name} 
                 whileHover={{ y: -2 }}
                 className="relative"
-                onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link
                   href={item.href}
                   className="text-premium-black hover:text-cork-900 font-medium transition-all duration-500 relative group flex items-center space-x-1"
                 >
                   <span>{item.name}</span>
-                  {item.dropdown && (
-                    <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
-                  )}
                   <motion.div
                     className="absolute -bottom-1 left-0 h-0.5 bg-cork-500 rounded-full"
                     initial={{ width: 0 }}
@@ -101,29 +83,7 @@ const Navbar = () => {
                   />
                 </Link>
                 
-                {/* Dropdown Menu */}
-                {item.dropdown && (
-                  <AnimatePresence>
-                    {activeDropdown === item.name && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-luxury border border-cork-100 py-2 z-50"
-                      >
-                        {item.dropdown.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className="block px-4 py-3 text-premium-black hover:bg-cork-50 hover:text-cork-900 transition-colors duration-300"
-                          >
-                            {dropdownItem.name}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
+                {/* Dropdown Menu - Currently disabled */}
               </motion.div>
             ))}
           </div>
@@ -143,7 +103,7 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            className="lg:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 btn-mobile"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -156,14 +116,14 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white border-t border-gray-100"
+              className="lg:hidden bg-white border-t border-gray-100 nav-mobile"
             >
               <div className="py-6 space-y-4">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block py-3 px-4 text-premium-black hover:bg-cork-50 hover:text-cork-600 font-medium transition-colors duration-300"
+                    className="block py-3 px-4 text-premium-black hover:bg-cork-50 hover:text-cork-600 font-medium transition-colors duration-300 btn-mobile"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
@@ -172,14 +132,14 @@ const Navbar = () => {
                 <div className="pt-4 border-t border-gray-100">
                   <Link
                     href="/contact"
-                    className="flex items-center space-x-2 py-3 px-4 text-cork-600 font-medium"
+                    className="flex items-center space-x-2 py-3 px-4 text-cork-600 font-medium btn-mobile"
                   >
                     <Phone className="w-4 h-4" />
                     <span>+91 98765 43210</span>
                   </Link>
                   <Link
                     href="/quote"
-                    className="block mt-4 mx-4 btn-primary text-center"
+                    className="block mt-4 mx-4 btn-primary text-center btn-mobile"
                     onClick={() => setIsOpen(false)}
                   >
                     Get Quote

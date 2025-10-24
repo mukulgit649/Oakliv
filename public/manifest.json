@@ -1,0 +1,49 @@
+{
+  "name": "Oakliv - Premium Sustainable Design Studio",
+  "short_name": "Oakliv",
+  "description": "Northeast India's first sustainable design studio, specializing in premium cork solutions for enterprises, hospitality, and luxury brands.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F6",
+  "theme_color": "#4E342E",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["business", "lifestyle", "shopping"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Products",
+      "short_name": "Products",
+      "description": "Browse our premium cork products",
+      "url": "/solutions",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Get Quote",
+      "short_name": "Quote",
+      "description": "Request a custom quote",
+      "url": "/#enquiry",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Get in touch with our team",
+      "url": "/contact",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}

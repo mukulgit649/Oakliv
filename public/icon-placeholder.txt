@@ -1,0 +1,25 @@
+# PWA Icons Required
+
+You need to create the following icon files for the PWA to work properly:
+
+1. /public/icon-192x192.png (192x192 pixels)
+2. /public/icon-256x256.png (256x256 pixels) 
+3. /public/icon-384x384.png (384x384 pixels)
+4. /public/icon-512x512.png (512x512 pixels)
+
+These should be:
+- Square PNG images
+- High quality with your Oakliv logo
+- Optimized for mobile display
+- Consistent branding across all sizes
+
+You can use tools like:
+- Figma/Adobe Illustrator to create the icons
+- Online PWA icon generators
+- Image editing software
+
+The icons will be used for:
+- App installation prompts
+- Home screen icons
+- Splash screens
+- App store listings

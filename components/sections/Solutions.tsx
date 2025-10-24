@@ -130,16 +130,16 @@ const Solutions = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-premium-black mb-4">
+          <h2 className="text-premium-black mb-4">
             Our <span className="text-cork-600">Solutions</span>
           </h2>
-          <p className="text-base sm:text-lg text-premium-gray max-w-2xl mx-auto mb-6 px-4">
+          <p className="body-text text-premium-gray max-w-2xl mx-auto mb-6 px-4">
             Premium cork-based solutions designed for sustainability, luxury, and functionality.
           </p>
         </motion.div>
 
         {/* Solutions Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-10 px-4 sm:px-0">
           {solutions.map((solution, index) => {
             const colors = getColorClasses(solution.color)
             return (
@@ -150,44 +150,33 @@ const Solutions = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="group"
               >
-                <Link href={solution.href}>
-                  <Card className={`${colors.bg} h-full border ${colors.borderColor} ${colors.hoverBg}`}>
-                    {/* Icon */}
-                    <motion.div
-                      className={`w-16 h-16 ${colors.iconBg} rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300`}
-                      whileHover={{ rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <solution.icon className="w-8 h-8 text-white" />
-                    </motion.div>
+                <Card className={`${colors.bg} h-full border ${colors.borderColor} ${colors.hoverBg} group`}>
+                  {/* Icon */}
+                  <motion.div
+                    className={`w-12 h-12 sm:w-16 sm:h-16 ${colors.iconBg} rounded-xl flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-105 transition-transform duration-300`}
+                    whileHover={{ rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <solution.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  </motion.div>
 
-                    {/* Content */}
-                    <div className="flex flex-col h-full p-6">
-                      <div className="flex-1 space-y-4">
-                        <h3 className="text-xl font-serif font-bold text-premium-black group-hover:text-cork-900 transition-colors duration-300">
-                          {solution.title}
-                        </h3>
-                        <p className="text-base text-premium-gray leading-relaxed">
-                          {solution.description}
-                        </p>
-                      </div>
-
-                      {/* CTA Button - Inside card */}
-                      <div className="mt-6 pt-4 border-t border-cork-200">
-                        <div className="text-center">
-                          <span className="inline-flex items-center px-4 py-2 bg-cork-600 text-white text-sm font-medium rounded-lg hover:bg-cork-700 transition-all duration-300 group-hover:scale-105">
-                            Explore {solution.title} →
-                          </span>
-                        </div>
-                      </div>
+                  {/* Content */}
+                  <div className="flex flex-col h-full p-4 sm:p-6">
+                    <div className="flex-1 space-y-3 sm:space-y-4">
+                      <h3 className="text-premium-black group-hover:text-cork-900 transition-colors duration-300">
+                        {solution.title}
+                      </h3>
+                      <p className="small-text text-premium-gray leading-relaxed">
+                        {solution.description}
+                      </p>
                     </div>
+                  </div>
 
-                    {/* Glow Effect */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className={`absolute inset-0 rounded-2xl ${colors.iconBg} opacity-5 blur-xl`}></div>
-                    </div>
-                  </Card>
-                </Link>
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className={`absolute inset-0 rounded-2xl ${colors.iconBg} opacity-5 blur-xl`}></div>
+                  </div>
+                </Card>
               </motion.div>
             )
           })}

@@ -41,10 +41,10 @@ const Testimonials = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-premium-black mb-4">
+          <h2 className="text-premium-black mb-4">
             What Our <span className="text-cork-600">Clients Say</span>
           </h2>
-          <p className="text-lg text-premium-gray max-w-2xl mx-auto">
+          <p className="body-text text-premium-gray max-w-2xl mx-auto">
             Don't just take our word for it. Hear from the industry leaders who trust Oakliv 
             for their premium sustainable solutions.
           </p>
@@ -104,7 +104,7 @@ const Testimonials = () => {
                     <div className="text-cork-600 font-medium">
                       {testimonial.role}
                     </div>
-                    <div className="text-sm text-premium-gray">
+                    <div className="small-text text-premium-gray">
                       {testimonial.company}
                     </div>
                   </div>

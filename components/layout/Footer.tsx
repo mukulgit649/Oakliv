@@ -77,7 +77,7 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-3 mb-6">
@@ -100,20 +100,20 @@ const Footer = () => {
               </div>
             </Link>
             
-            <p className="text-cork-200 mb-6 max-w-md">
+            <p className="text-sm sm:text-base text-cork-200 mb-6 max-w-md">
               Northeast India's first sustainable design studio, specializing in premium cork solutions 
               for enterprises, hospitality, and luxury brands.
             </p>
             
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-cork-200">
-                <Phone className="w-4 h-4 text-gold-400" />
-                <span>+91 98765 43210</span>
-                  </div>
+                <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
+                <span className="text-sm sm:text-base">+91 98765 43210</span>
+              </div>
               <div className="flex items-center space-x-3 text-cork-200">
-                <Mail className="w-4 h-4 text-gold-400" />
-                <span>hello@oakliv.com</span>
-                </div>
+                <Mail className="w-4 h-4 text-gold-400 flex-shrink-0" />
+                <span className="text-sm sm:text-base">hello@oakliv.com</span>
+              </div>
             </div>
 
             {/* Social Media Links */}
@@ -126,7 +126,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-10 h-10 bg-cork-800 rounded-lg flex items-center justify-center text-cork-300 transition-all duration-300 ${social.color} hover:bg-cork-700 hover:scale-110`}
+                    className={`w-10 h-10 bg-cork-800 rounded-lg flex items-center justify-center text-cork-300 transition-all duration-300 ${social.color} hover:bg-cork-700 hover:scale-110 min-h-[44px] min-w-[44px]`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >

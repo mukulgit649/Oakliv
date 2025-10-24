@@ -1,12 +1,22 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { Chatbot } from '@/components/ai/Chatbot'
 import { Analytics } from '@/components/analytics/Analytics'
+import { PWAProvider } from '@/components/pwa/PWAProvider'
+import { MobileOptimized } from '@/components/ui/MobileOptimized'
 
 const inter = Inter({ subsets: ['latin'] })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: '#4E342E',
+}
 
 export const metadata: Metadata = {
   title: 'Oakliv - Premium Sustainable Design Studio | Cork Products & Eco Solutions',
@@ -24,10 +34,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  manifest: '/manifest.json',
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
     apple: '/favicon.svg',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Oakliv',
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
   },
   openGraph: {
     title: 'Oakliv - Premium Sustainable Design Studio',
@@ -82,6 +101,8 @@ export default function RootLayout({
         <Footer />
         <Chatbot />
         <Analytics />
+        <PWAProvider />
+        <MobileOptimized />
       </body>
     </html>
   )

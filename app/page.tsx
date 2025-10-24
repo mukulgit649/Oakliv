@@ -7,7 +7,6 @@ import { Industries } from '@/components/sections/Industries'
 import { Solutions } from '@/components/sections/Solutions'
 import { WhyChoose } from '@/components/sections/WhyChoose'
 import { CaseStudies } from '@/components/sections/CaseStudies'
-import { FinalCTA } from '@/components/sections/FinalCTA'
 // Removed Testimonials; replaced with Enquiry section
 import { Enquiry } from '@/components/sections/Enquiry'
 import { FloatingChatbot } from '@/components/ai/FloatingChatbot'
@@ -40,9 +39,6 @@ export default function Home() {
         </div>
         <div className="py-12">
           <CaseStudies />
-        </div>
-        <div className="py-12">
-          <FinalCTA />
         </div>
         <div className="py-12">
           <Enquiry />
