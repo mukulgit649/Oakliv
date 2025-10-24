@@ -49,8 +49,6 @@ const Navbar = () => {
                 alt="OAKLIV - The Cork Studio" 
                 className="h-16 sm:h-20 md:h-24 w-auto"
                 style={{
-                  imageRendering: 'high-quality',
-                  imageRendering: '-webkit-optimize-contrast',
                   imageRendering: 'crisp-edges'
                 }}
               />
