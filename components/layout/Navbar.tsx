@@ -31,7 +31,7 @@ const Navbar = () => {
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-xl shadow-luxury border-b border-cork-100' 
-          : 'bg-transparent'
+          : 'bg-white/95 backdrop-blur-xl'
       }`}
     >
       <div className="container-custom px-4 sm:px-6 lg:px-8">
@@ -81,16 +81,23 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Search Button */}
+          {/* Search Bar */}
           <div className="hidden lg:flex items-center">
-            {/* Search Icon Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-lg hover:bg-cork-50 transition-colors duration-300"
-            >
-              <Search className="w-5 h-5 text-cork-600 hover:text-cork-700" />
-            </motion.button>
+            <div className="flex items-center bg-white rounded-full border border-amber-200 pl-4 pr-1 py-1">
+              <input
+                type="text"
+                placeholder="Search"
+                className="bg-transparent px-2 py-1.5 text-sm text-amber-900 placeholder:text-amber-600 focus:outline-none w-32 border-none"
+              />
+              <div className="h-6 w-px bg-amber-200 mx-1"></div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-amber-50 rounded-full p-2 hover:bg-amber-100 transition-colors duration-300"
+              >
+                <Search className="w-4 h-4 text-amber-800" />
+              </motion.button>
+            </div>
           </div>
 
           {/* Mobile menu button */}

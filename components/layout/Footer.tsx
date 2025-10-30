@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Mail, Phone, ArrowRight, ChevronDown, Instagram, MessageCircle, Facebook } from 'lucide-react'
+import { Mail, Phone, ArrowRight, ChevronDown, Instagram, MessageCircle, Facebook, Leaf } from 'lucide-react'
 import { useState } from 'react'
 
 const Footer = () => {
@@ -42,12 +42,9 @@ const Footer = () => {
 
   const footerLinks = {
     quickLinks: [
-      { name: 'Corporate Gifting', href: '/solutions/corporate' },
-      { name: 'Hospitality', href: '/solutions/hospitality' },
-      { name: 'Interiors', href: '/solutions/interior' },
-      { name: 'Workplace & Stationery', href: '/solutions/workplace' },
-      { name: 'Lifestyle & Decor', href: '/solutions/lifestyle' },
-      { name: 'Materials & Innovation', href: '/solutions/materials' }
+      { name: 'About', href: '#about' },
+      { name: 'Solutions', href: '#solutions' },
+      { name: 'Contact', href: '#enquiry-form' }
     ]
   }
 
@@ -114,6 +111,10 @@ const Footer = () => {
                 <Mail className="w-4 h-4 text-gold-400 flex-shrink-0" />
                 <span className="text-sm sm:text-base">hello@oakliv.com</span>
               </div>
+              <div className="flex items-center space-x-3 text-green-400 mt-4">
+                <Leaf className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm sm:text-base font-medium">Carbon neutral company</span>
+              </div>
             </div>
 
             {/* Social Media Links */}
@@ -177,25 +178,25 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
             <p className="text-cork-200 mb-4 text-sm sm:text-base">Get product updates and design inspiration.</p>
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-              <div className="flex items-center bg-white/10 rounded-lg overflow-hidden">
+              <div className="flex items-center border border-cork-700 rounded-lg overflow-hidden">
                 <input
                   type="email"
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder="Your email"
-                  className="w-full bg-transparent px-3 sm:px-4 py-3 text-sm placeholder:text-cork-300 focus:outline-none"
+                  className="w-full bg-cork-800/50 px-3 sm:px-4 py-3 text-sm placeholder:text-amber-200 focus:outline-none"
                   required
                 />
                 <button 
                   type="submit" 
                   disabled={isNewsletterSubmitting}
-                  className={`px-3 sm:px-4 py-3 font-semibold transition-colors duration-300 flex-shrink-0 ${
+                  className={`px-4 py-3 transition-colors duration-300 flex-shrink-0 rounded-r-lg border-l border-cork-700 ${
                     isNewsletterSubmitting 
                       ? 'bg-gray-400 cursor-not-allowed' 
-                      : 'bg-gold-500 text-cork-900 hover:bg-gold-400'
+                      : 'bg-amber-50 hover:bg-amber-100'
                   }`}
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-5 h-5 text-cork-900" />
                 </button>
               </div>
               

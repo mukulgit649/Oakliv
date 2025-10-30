@@ -61,28 +61,28 @@ const Enquiry = () => {
 
   const faqs = [
     {
-      question: "What industries do you serve?",
-      answer: "We serve 6 major industries: Residential Homes, Commercial Offices, Hospitality (Hotels, Restaurants, Cafes), Healthcare Facilities, Educational Institutions, and Corporate Spaces. Each receives customized cork solutions tailored to their specific needs."
+      question: "What is the Oakliv Design Library?",
+      answer: "The Oakliv Design Library is our curated archive of cork textures, finishes, and materials — created for designers and brands seeking inspiration for sustainable design. It's a visual tool that helps you explore how cork can be used in interiors, packaging, and products before production begins. Think of it as your material moodboard — powered by nature."
     },
     {
-      question: "How long does it take to get a quote?",
-      answer: "We provide custom quotes within 24 hours of receiving your enquiry. Our team reviews your requirements and prepares a detailed proposal with pricing, timeline, and product specifications."
+      question: "What are Oakliv Product Stories?",
+      answer: "Oakliv Product Stories is our AI-generated short educational video series that showcases the making, meaning, and material intelligence behind our designs and products. It's where we share real stories of how cork transforms from forest to finished form — through design, craft, and sustainability. Watch how design and responsibility come together at Oakliv."
     },
     {
-      question: "Is cork really sustainable?",
-      answer: "Yes! Cork is 100% natural and renewable. Cork oak trees are never cut down - only the bark is harvested every 9 years. It's a carbon-negative material that absorbs more CO2 than it produces, and it's fully recyclable and biodegradable."
+      question: "What exactly is cork, and why is it sustainable?",
+      answer: "Cork is the natural bark of the Cork Oak tree — it's harvested without cutting the tree, and regrows every few years. That makes it 100% renewable, biodegradable, and carbon-negative 🌳"
     },
     {
-      question: "Do you provide installation services?",
-      answer: "Yes, we provide professional installation services for all our cork products. We also offer installation guides for DIY projects and can recommend certified installers in your area."
+      question: "Can Oakliv help us design custom cork products?",
+      answer: "Yes. We partner with enterprises, hotels, and designers to create custom cork products that reflect your brand identity and sustainability goals. From branded gifting to interior materials and OEM manufacturing, we design, prototype, and produce — all under one roof. If it can be imagined sustainably, Oakliv can build it."
     },
     {
-      question: "What are the maintenance requirements for cork products?",
-      answer: "Cork products are very low maintenance. Regular sweeping or vacuuming and occasional damp mopping is sufficient for cork flooring. Wall panels just need occasional dusting. Cork is naturally resistant to dust mites, mold, and mildew."
+      question: "How long does delivery take once an order is placed?",
+      answer: "Standard dispatch is within 10–15 working days (depending on customization). We offer pan-India delivery with eco-safe packaging."
     },
     {
-      question: "Can cork products be customized?",
-      answer: "Absolutely! We specialize in custom cork solutions. From custom colors, patterns, and sizes to bespoke furniture designs, we can create unique pieces that match your vision and space requirements perfectly."
+      question: "How can we request Oakliv's catalogue or samples?",
+      answer: "You can request a digital catalogue or material sample kit through the Contact Form below. Once we know your industry and project type — whether you're a hotel, architect, or corporate buyer — our team will send a personalized catalogue with relevant collections, finishes, and pricing. Expect a tailored response within 24 hours with visuals and specifications."
     }
   ]
 
@@ -164,12 +164,14 @@ const Enquiry = () => {
               className="w-full px-4 py-3 border border-cork-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cork-400 focus:border-transparent transition-all duration-300 bg-white"
             >
               <option value="">Select a category</option>
-              <option value="residential">Residential Homes</option>
-              <option value="commercial">Commercial Offices</option>
-              <option value="hospitality">Hospitality (Hotels, Restaurants, Cafes)</option>
-              <option value="healthcare">Healthcare Facilities</option>
-              <option value="education">Educational Institutions</option>
-              <option value="corporate">Corporate Spaces</option>
+              <option value="corporate-gifting">Corporate Gifting</option>
+              <option value="hospitality">Hospitality</option>
+              <option value="interiors">Interiors</option>
+              <option value="workplace">Workplace & Stationery</option>
+              <option value="lifestyle">Lifestyle & Decor</option>
+              <option value="materials">Materials & Innovation</option>
+              <option value="collaboration">Collaboration & Partnership</option>
+              <option value="careers">Careers/Jobs</option>
             </select>
           </div>
           <div className="md:col-span-2">

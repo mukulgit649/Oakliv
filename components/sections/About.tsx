@@ -8,7 +8,7 @@ const About = () => {
 
 
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
+    <section id="about" className="section-padding bg-white relative overflow-hidden">
       
       {/* Stunning Particle System */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -165,20 +165,9 @@ const About = () => {
                 whileTap={{ scale: 0.95 }}
                 className="relative group"
               >
-                <Link href="/about" className="btn-primary group inline-flex items-center relative z-10">
+                <Link href="/about" className="group inline-flex items-center relative z-10 text-cork-700 hover:text-cork-800 font-semibold transition-colors duration-300">
                   <motion.span
-                    animate={{ 
-                      textShadow: [
-                        "0 0 0px rgba(255,255,255,0)",
-                        "0 0 10px rgba(255,255,255,0.5)",
-                        "0 0 0px rgba(255,255,255,0)"
-                      ]
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity, 
-                      delay: 4.5 
-                    }}
+                    className="underline decoration-2 underline-offset-4"
                   >
                     Learn More
                   </motion.span>

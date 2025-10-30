@@ -45,10 +45,10 @@ const Solutions = () => {
     },
     {
       icon: Cog,
-      title: 'Materials & Innovation',
+      title: 'Custom Solutions',
       description: 'Supplying cork sheets, fabrics, lids, and stoppers for bulk buyers, designers, and OEMs. We also offer custom product development and white-label solutions tailored to your brand\'s needs.',
       color: 'innovation',
-      href: '/solutions/materials'
+      href: '/solutions/custom'
     }
   ]
 
@@ -121,7 +121,7 @@ const Solutions = () => {
   }
 
   return (
-    <section className="section-padding bg-cream-50">
+    <section id="solutions" className="section-padding bg-cream-50">
       <div className="container-custom">
         {/* Header */}
         <motion.div

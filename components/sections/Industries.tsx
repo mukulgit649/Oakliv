@@ -34,8 +34,8 @@ const Industries = () => {
     },
     {
       icon: Truck,
-      title: 'Exports & Wholesale',
-      description: 'Bulk orders and wholesale solutions for international markets',
+      title: 'Retail',
+      description: 'Custom cork solutions tailored to your unique requirements and specifications',
       color: 'from-luxury-400 to-luxury-500',
       bgColor: 'bg-luxury-50',
       iconColor: 'text-luxury-600'
