@@ -5,8 +5,6 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { FloatingChatbot } from '@/components/ai/FloatingChatbot'
 import { Analytics } from '@/components/analytics/Analytics'
-import { PWAProvider } from '@/components/pwa/PWAProvider'
-import { MobileOptimized } from '@/components/ui/MobileOptimized'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -101,8 +99,6 @@ export default function RootLayout({
         <Footer />
         <FloatingChatbot />
         <Analytics />
-        <PWAProvider />
-        <MobileOptimized />
       </body>
     </html>
   )

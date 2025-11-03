@@ -210,7 +210,7 @@ const About = () => {
                 }}
               >
                 <img 
-                  src="/about-banner.png" 
+                  src="/HERO IMAGE  OAKLIV.IN.png" 
                   alt="About OAKLIV Banner" 
                   className="w-full h-full object-cover"
                   style={{ imageRendering: 'crisp-edges' }}

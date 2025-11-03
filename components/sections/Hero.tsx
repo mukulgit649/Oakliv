@@ -337,7 +337,7 @@ const Hero = () => {
                 className="w-full h-full rounded-2xl overflow-hidden"
               >
                 <img 
-                  src="/hero-banner.png" 
+                  src="/HERO IMAGE  OAKLIV.IN (1).png" 
                   alt="OAKLIV Hero Banner" 
                   className="w-full h-full object-cover"
                   style={{ imageRendering: 'crisp-edges' }}

@@ -1,56 +1,56 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { TrendingUp, Users, Award, Play, X } from 'lucide-react'
-import { useState, useRef, useEffect } from 'react'
+import { TrendingUp, Users, Award, Play, X, ChevronLeft, ChevronRight, Leaf, TreePine, Recycle, Droplet } from 'lucide-react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 
 const CaseStudies = () => {
   const [playingVideos, setPlayingVideos] = useState<Set<string>>(new Set())
   const [fullscreenVideo, setFullscreenVideo] = useState<string | null>(null)
-  const [currentTextureIndex, setCurrentTextureIndex] = useState(0)
+  const textureCarouselRef = useRef<HTMLDivElement>(null)
 
-  // Texture images array
+  // Texture images array with design names
   const textureImages = [
-    '/Autumn Mosaic Cork.png',
-    '/Rustic Mosaic Cork.png',
-    '/Natural FG Cork.png',
-    '/Natural Harmony Cork.png',
-    '/Natural MG Cork.png',
-    '/Rustic Sienna Cork.png',
-    '/Design Library_Web (2).png'
+    { image: '/Autumn Mosaic Cork.png', name: 'Autumn Mosaic Cork' },
+    { image: '/Rustic Mosaic Cork.png', name: 'Rustic Mosaic Cork' },
+    { image: '/Natural FG Cork.png', name: 'Natural FG Cork' },
+    { image: '/Natural Harmony Cork.png', name: 'Natural Harmony Cork' },
+    { image: '/Natural MG Cork.png', name: 'Natural MG Cork' },
+    { image: '/Rustic Sienna Cork.png', name: 'Rustic Sienna Cork' },
+    { image: '/Design Library_Web (2).png', name: 'Design Library Cork' }
   ]
 
-  // Auto-rotate texture images
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTextureIndex((prev) => (prev + 1) % textureImages.length)
-    }, 4000) // Change image every 4 seconds
-    
-    return () => clearInterval(interval)
-  }, [textureImages.length])
+  const scrollLeft = () => {
+    if (textureCarouselRef.current) {
+      textureCarouselRef.current.scrollBy({ left: -400, behavior: 'smooth' })
+    }
+  }
+
+  const scrollRight = () => {
+    if (textureCarouselRef.current) {
+      textureCarouselRef.current.scrollBy({ left: 400, behavior: 'smooth' })
+    }
+  }
 
   const caseStudies = [
     {
       icon: TrendingUp,
       title: 'Business Clients',
       description: 'Join hundreds of companies that have chosen our sustainable cork solutions',
-      metric: '500+',
-      category: 'Business'
+      metric: '500+'
     },
     {
       icon: Users,
       title: 'Units Delivered',
       description: 'Sustainable cork products delivered to businesses worldwide',
-      metric: '2M+',
-      category: 'Delivery'
+      metric: '20 Lakh+'
     },
     {
       icon: Award,
       title: 'Repeat Orders',
       description: 'Client satisfaction leading to continuous partnerships',
-      metric: '98%',
-      category: 'Satisfaction'
+      metric: '98%'
     }
   ]
 
@@ -145,56 +145,71 @@ const CaseStudies = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mb-16"
+          className="text-center"
         >
           <h3 className="text-3xl font-serif font-bold text-premium-black mb-8">
             Our Premium Designs
           </h3>
           
-          {/* Texture Images Slideshow */}
+          {/* Texture Images Carousel */}
           <motion.div 
-            className="mb-16 max-w-6xl mx-auto"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            className="mb-16 max-w-7xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
-            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
-              {textureImages.map((image, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ 
-                    opacity: index === currentTextureIndex ? 1 : 0,
-                    scale: index === currentTextureIndex ? 1 : 1
-                  }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
-                  className={`absolute inset-0 ${index === currentTextureIndex ? 'z-10' : 'z-0'}`}
-                  style={{ 
-                    display: index === currentTextureIndex ? 'block' : 'none'
-                  }}
-                >
-                  <Image
-                    src={image}
-                    alt={`Texture ${index + 1}`}
-                    fill
-                    className="object-contain w-full h-full"
-                    priority={index === 0}
-                  />
-                </motion.div>
-              ))}
+            <div className="relative">
+              {/* Navigation Buttons */}
+              <button
+                onClick={scrollLeft}
+                className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg border border-cork-200 transition-all duration-300 hover:scale-110"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-cork-700" />
+              </button>
               
-              {/* Slide indicators */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                {textureImages.map((_, index) => (
-                  <button
+              <button
+                onClick={scrollRight}
+                className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg border border-cork-200 transition-all duration-300 hover:scale-110"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-cork-700" />
+              </button>
+
+              {/* Carousel Container */}
+              <div 
+                ref={textureCarouselRef}
+                className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-4 px-4 md:px-12"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {textureImages.map((texture, index) => (
+                  <motion.div
                     key={index}
-                    onClick={() => setCurrentTextureIndex(index)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      index === currentTextureIndex 
-                        ? 'w-8 bg-white' 
-                        : 'w-2 bg-white/50 hover:bg-white/75'
-                    }`}
-                  />
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="flex-shrink-0 w-[280px] sm:w-[350px] md:w-[400px] lg:w-[450px] xl:w-[500px]"
+                  >
+                    <div className="bg-white rounded-2xl overflow-hidden shadow-soft border border-cork-100 hover:shadow-luxury transition-all duration-300">
+                      {/* Image */}
+                      <div className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
+                        <Image
+                          src={texture.image}
+                          alt={texture.name}
+                          fill
+                          className="object-contain p-4"
+                          priority={index === 0}
+                        />
+                      </div>
+                      
+                      {/* Design Name */}
+                      <div className="p-3 sm:p-4 text-center">
+                        <h4 className="text-base sm:text-lg md:text-xl font-serif font-bold text-premium-black">
+                          {texture.name}
+                        </h4>
+                      </div>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -208,9 +223,6 @@ const CaseStudies = () => {
             className="max-w-6xl mx-auto mb-16"
           >
             <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-soft border border-cork-100">
-              <h4 className="text-xl sm:text-2xl font-serif font-bold text-center text-premium-black mb-4 sm:mb-6">
-                See Oakliv in Action
-              </h4>
               <div className="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden shadow-lg">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
@@ -393,14 +405,11 @@ const CaseStudies = () => {
           </div>
         </motion.div>
 
-        {/* Spacing between sections */}
-        <div className="mb-16 md:mb-20 lg:mb-24"></div>
-
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16 px-4 sm:px-0"
+          className="text-center mt-48 px-4 sm:px-0"
         >
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif font-bold text-premium-black mb-4">
             Trusted by <span className="text-gradient-premium">Leading Businesses</span>
@@ -456,134 +465,118 @@ const CaseStudies = () => {
                 </h3>
 
                 {/* Description */}
-                <p className="text-premium-gray text-sm mb-4">
+                <p className="text-premium-gray text-sm">
                   {study.description}
                 </p>
-
-                {/* Category Tag */}
-                <div className="inline-block px-4 py-2 bg-cork-100 text-cork-700 text-xs font-medium rounded-full">
-                  {study.category}
-                </div>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Sustainability Impact Stats */}
+        {/* Make a Difference Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-16"
+          className="mt-48"
         >
-          <div className="bg-gradient-to-r from-green-50 to-eco-50 rounded-3xl p-8 sm:p-12 border border-green-100">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-green-800 mb-4">
-                Our Environmental Impact
-              </h3>
-              <p className="text-green-700 max-w-2xl mx-auto">
-                Every cork product contributes to a healthier planet through our sustainable practices
+          {/* Main Heading */}
+          <div className="text-center mb-8 sm:mb-12 px-4">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-premium-black mb-3 sm:mb-4">
+              Make a Difference
+            </h3>
+            <p className="text-base sm:text-lg text-premium-gray max-w-3xl mx-auto leading-relaxed">
+              Choosing cork isn't just about quality—it's about positive environmental impact
+            </p>
+          </div>
+
+          {/* Your Sustainability Impact Box */}
+          <div className="bg-green-50 rounded-3xl p-4 sm:p-8 md:p-12 border border-green-200 mb-8 sm:mb-12">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <Leaf className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
+              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-green-800">
+                Your Sustainability Impact
+              </h4>
+            </div>
+            
+            {/* Metrics Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 border border-gold-200 relative">
+                <Leaf className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 absolute top-3 right-3 sm:top-4 sm:right-4" />
+                <div className="text-4xl sm:text-5xl font-bold text-premium-black mb-2 sm:mb-3">5x</div>
+                <div className="text-base sm:text-lg font-serif font-bold text-premium-black mb-2 sm:mb-3">CO2 Absorption</div>
+                <p className="text-xs sm:text-sm text-premium-gray leading-relaxed">
+                  Harvested Cork Oak Trees Absorb 3 To 5 Times More CO2 As They Regenerate Their Bark Compared To Unharvested Trees.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-4 sm:p-6 border border-gold-200 relative">
+                <TreePine className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 absolute top-3 right-3 sm:top-4 sm:right-4" />
+                <div className="text-4xl sm:text-5xl font-bold text-premium-black mb-2 sm:mb-3">2.2M</div>
+                <div className="text-base sm:text-lg font-serif font-bold text-premium-black mb-2 sm:mb-3">2.2 Million Hectares</div>
+                <p className="text-xs sm:text-sm text-premium-gray leading-relaxed">
+                  Cork Oak Forests Cover Over 2.2 Million Hectares Worldwide, Acting As A Vital Carbon Sink And Biodiversity Hotspot.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-4 sm:p-6 border border-gold-200 relative">
+                <Recycle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 absolute top-3 right-3 sm:top-4 sm:right-4" />
+                <div className="text-4xl sm:text-5xl font-bold text-premium-black mb-2 sm:mb-3">200Y</div>
+                <div className="text-base sm:text-lg font-serif font-bold text-premium-black mb-2 sm:mb-3">200 Years Lifespan</div>
+                <p className="text-xs sm:text-sm text-premium-gray leading-relaxed">
+                  Cork Oak Trees Can Live Up To 200 Years, Continually Providing Environmental Benefits Throughout Their Lifespan.
+                </p>
+              </div>
+            </div>
+            
+            <p className="text-sm text-premium-gray text-center">
+              Calculations based on industry standards for sustainable materials vs. conventional alternatives
+            </p>
+          </div>
+
+          {/* Three Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-white rounded-2xl p-4 sm:p-6 border border-cork-200"
+            >
+              <h5 className="text-lg sm:text-xl font-serif font-bold text-premium-black mb-2 sm:mb-3">
+                Renewable Resource
+              </h5>
+              <p className="text-sm sm:text-base text-premium-gray leading-relaxed">
+                Cork is harvested without damaging the tree, making it one of the most sustainable natural materials.
               </p>
-            </div>
+            </motion.div>
             
-            {/* Key Stats Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="text-center"
-              >
-                <div className="text-4xl sm:text-5xl font-bold text-green-600 mb-2">100%</div>
-                <div className="text-green-800 font-semibold mb-1">Sustainable Materials</div>
-                <div className="text-green-700 text-sm">Renewable cork from living trees</div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                className="text-center"
-              >
-                <div className="text-4xl sm:text-5xl font-bold text-green-600 mb-2">5x</div>
-                <div className="text-green-800 font-semibold mb-1">CO2 Absorption</div>
-                <div className="text-green-700 text-sm">More CO2 absorbed than produced</div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="text-center"
-              >
-                <div className="text-4xl sm:text-5xl font-bold text-green-600 mb-2">200Y</div>
-                <div className="text-green-800 font-semibold mb-1">Tree Lifespan</div>
-                <div className="text-green-700 text-sm">Continuous environmental benefits</div>
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="bg-white rounded-2xl p-4 sm:p-6 border border-cork-200"
+            >
+              <h5 className="text-lg sm:text-xl font-serif font-bold text-premium-black mb-2 sm:mb-3">
+                Carbon Negative
+              </h5>
+              <p className="text-sm sm:text-base text-premium-gray leading-relaxed">
+                Cork oak forests absorb CO2, helping to reduce your company's carbon footprint with every purchase.
+              </p>
+            </motion.div>
             
-            {/* Sustainability Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.9 }}
-                className="flex items-center space-x-3 p-4 bg-white/50 rounded-xl"
-              >
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-green-600 text-lg">🌱</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-green-800 text-sm">Renewable</div>
-                  <div className="text-green-600 text-xs">Harvested without harming trees</div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-                className="flex items-center space-x-3 p-4 bg-white/50 rounded-xl"
-              >
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-green-600 text-lg">♻️</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-green-800 text-sm">Biodegradable</div>
-                  <div className="text-green-600 text-xs">Naturally decomposes safely</div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.1 }}
-                className="flex items-center space-x-3 p-4 bg-white/50 rounded-xl"
-              >
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-green-600 text-lg">⚡</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-green-800 text-sm">Carbon Negative</div>
-                  <div className="text-green-600 text-xs">Absorbs more CO2 than produced</div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className="flex items-center space-x-3 p-4 bg-white/50 rounded-xl"
-              >
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-green-600 text-lg">💚</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-green-800 text-sm">Plastic Alternative</div>
-                  <div className="text-green-600 text-xs">Reduces plastic waste</div>
-                </div>
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="bg-white rounded-2xl p-4 sm:p-6 border border-cork-200"
+            >
+              <h5 className="text-lg sm:text-xl font-serif font-bold text-premium-black mb-2 sm:mb-3">
+                Biodegradable
+              </h5>
+              <p className="text-sm sm:text-base text-premium-gray leading-relaxed">
+                Unlike synthetic alternatives, cork products naturally decompose at the end of their lifecycle.
+              </p>
+            </motion.div>
           </div>
         </motion.div>
       </div>

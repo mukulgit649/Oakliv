@@ -89,11 +89,67 @@ const Enquiry = () => {
   return (
     <section id="enquiry-form" className="section-padding bg-white">
       <div className="container-custom">
+        {/* FAQ Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className=""
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-premium-black mb-3">
+              Frequently Asked Questions
+            </h3>
+            <p className="text-premium-gray max-w-2xl mx-auto">
+              Find answers to common questions about our cork solutions and services
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className="bg-cream-50 border border-cork-200 rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-cork-50 transition-colors duration-300"
+                >
+                  <span className="font-semibold text-premium-black pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-cork-600 flex-shrink-0 transition-transform duration-300 ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: openFaq === index ? 'auto' : 0,
+                    opacity: openFaq === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-6 pb-5 text-premium-gray leading-relaxed">
+                    {faq.answer}
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-10"
+          className="text-center mt-48"
         >
           <h2 className="text-premium-black mb-3">
             Ready to Partner with Us?
@@ -223,62 +279,6 @@ const Enquiry = () => {
             </motion.button>
           </div>
         </motion.form>
-
-        {/* FAQ Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-20"
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-premium-black mb-3">
-              Frequently Asked Questions
-            </h3>
-            <p className="text-premium-gray max-w-2xl mx-auto">
-              Find answers to common questions about our cork solutions and services
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="bg-cream-50 border border-cork-200 rounded-xl overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-cork-50 transition-colors duration-300"
-                >
-                  <span className="font-semibold text-premium-black pr-4">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-cork-600 flex-shrink-0 transition-transform duration-300 ${
-                      openFaq === index ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: openFaq === index ? 'auto' : 0,
-                    opacity: openFaq === index ? 1 : 0
-                  }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-6 pb-5 text-premium-gray leading-relaxed">
-                    {faq.answer}
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   )
